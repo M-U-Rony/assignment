@@ -64,7 +64,7 @@ export const FeaturedCoursesSection: React.FC<FeaturedCoursesSectionProps> = ({ 
       aria-label="Featured Courses and Categories"
       className="w-full bg-white py-16 lg:py-[72px]"
     >
-      <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-[120px]">
+      <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-[120px]">
         
         {/* 1. Header Frame (Figma: Frame 3 Node 12:101, w=917, h=180) */}
         <div className="max-w-[917px] mx-auto text-center flex flex-col items-center">
@@ -77,45 +77,47 @@ export const FeaturedCoursesSection: React.FC<FeaturedCoursesSectionProps> = ({ 
           </p>
         </div>
 
-        {/* 2. Category Filter Pills (Figma: 21:33, 21:56, 21:63) */}
-        <div className="mt-10 sm:mt-12 flex flex-col items-center gap-3 sm:gap-4 max-w-[1100px] mx-auto">
-          {PILL_ROWS.map((row, rowIdx) => (
-            <div 
-              key={rowIdx}
-              className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3.5 lg:gap-4"
-            >
-              {row.map((pill) => {
-                const isMore = pill === '+ More';
-                const isActive = activeCategory === pill;
+        {/* 2. Category Filter Pills (Figma: 21:33, 21:56, 21:63 - Exactly 3 rows) */}
+        <div className="mt-10 sm:mt-12 w-full overflow-x-auto no-scrollbar py-1">
+          <div className="flex flex-col items-center gap-3 sm:gap-4 lg:gap-[20px] min-w-max mx-auto px-2">
+            {PILL_ROWS.map((row, rowIdx) => (
+              <div 
+                key={rowIdx}
+                className="flex flex-nowrap items-center justify-center gap-2.5 sm:gap-3.5 lg:gap-4 shrink-0"
+              >
+                {row.map((pill) => {
+                  const isMore = pill === '+ More';
+                  const isActive = activeCategory === pill;
 
-                if (isMore) {
+                  if (isMore) {
+                    return (
+                      <button
+                        key={pill}
+                        onClick={() => handlePillClick(pill)}
+                        className="px-3 py-2.5 rounded-[24px] font-sans font-medium text-[15px] sm:text-[16px] text-[#003be2] hover:underline transition-all cursor-pointer flex items-center justify-center shrink-0"
+                      >
+                        {pill}
+                      </button>
+                    );
+                  }
+
                   return (
                     <button
                       key={pill}
                       onClick={() => handlePillClick(pill)}
-                      className="px-4 py-2.5 rounded-[24px] font-sans font-medium text-[15px] sm:text-[16px] text-[#003be2] hover:underline transition-all cursor-pointer flex items-center justify-center"
+                      className={`px-4 sm:px-4 py-2 sm:py-2.5 rounded-[24px] font-sans font-medium text-[14px] sm:text-[16px] whitespace-nowrap transition-all duration-200 cursor-pointer shrink-0 ${
+                        isActive
+                          ? 'bg-[#d4fb20] text-[#242528] shadow-sm scale-105'
+                          : 'bg-[#f5f5f6] text-[#4b4c53] hover:bg-[#e5e6e8] hover:text-[#242528]'
+                      }`}
                     >
                       {pill}
                     </button>
                   );
-                }
-
-                return (
-                  <button
-                    key={pill}
-                    onClick={() => handlePillClick(pill)}
-                    className={`px-4 sm:px-5 py-2.5 rounded-[24px] font-sans font-medium text-[14px] sm:text-[16px] whitespace-nowrap transition-all duration-200 cursor-pointer ${
-                      isActive
-                        ? 'bg-[#d4fb20] text-[#242528] shadow-sm scale-105'
-                        : 'bg-[#f5f5f6] text-[#4b4c53] hover:bg-[#e5e6e8] hover:text-[#242528]'
-                    }`}
-                  >
-                    {pill}
-                  </button>
-                );
-              })}
-            </div>
-          ))}
+                })}
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* 3. Course Cards Grid (Figma: Frame 8 Node 33:683, w=1199, h=808) */}
