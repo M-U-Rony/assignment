@@ -26,10 +26,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onSearch }) => {
         {/* 1. 3D Ornaments Group (Figma: 46:79) */}
         {/* Top-Left Lime Coil (46:90) */}
         <img
-          src="/hero/shape_coil_lime.png"
+          src="/hero/ornament_top_left_coil_lime.png"
           alt=""
           aria-hidden="true"
-          className="absolute pointer-events-none select-none z-10 animate-float-slow"
+          className="absolute pointer-events-none select-none z-20"
           style={{
             left: '-118px',
             top: '221px',
@@ -40,10 +40,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onSearch }) => {
 
         {/* Mid-Left White Zigzag (46:95) */}
         <img
-          src="/hero/shape_zigzag_white.png"
+          src="/hero/ornament_mid_left_zigzag_white.png"
           alt=""
           aria-hidden="true"
-          className="absolute pointer-events-none select-none z-10"
+          className="absolute pointer-events-none select-none z-20"
           style={{
             left: '183px',
             top: '477px',
@@ -54,10 +54,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onSearch }) => {
 
         {/* Bottom-Left White Donut (46:105) */}
         <img
-          src="/hero/shape_donut_white.png"
+          src="/hero/ornament_bottom_left_donut_white.png"
           alt=""
           aria-hidden="true"
-          className="absolute pointer-events-none select-none z-10"
+          className="absolute pointer-events-none select-none z-20"
           style={{
             left: '18px',
             top: '682px',
@@ -68,10 +68,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onSearch }) => {
 
         {/* Top-Right Lime Cylinder (46:110) */}
         <img
-          src="/hero/shape_cylinder_lime.png"
+          src="/hero/ornament_top_right_cylinder_lime.png"
           alt=""
           aria-hidden="true"
-          className="absolute pointer-events-none select-none z-10"
+          className="absolute pointer-events-none select-none z-20"
           style={{
             left: '1231px',
             top: '221px',
@@ -82,10 +82,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onSearch }) => {
 
         {/* Mid-Right White Cone / Pyramid (46:80) */}
         <img
-          src="/hero/shape_cone_white.png"
+          src="/hero/ornament_mid_right_cone_white.png"
           alt=""
           aria-hidden="true"
-          className="absolute pointer-events-none select-none z-10"
+          className="absolute pointer-events-none select-none z-20"
           style={{
             left: '1106px',
             top: '464px',
@@ -96,10 +96,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onSearch }) => {
 
         {/* Bottom-Right White Zigzag (46:85) */}
         <img
-          src="/hero/shape_zigzag_white.png"
+          src="/hero/ornament_bottom_right_zigzag_white.png"
           alt=""
           aria-hidden="true"
-          className="absolute pointer-events-none select-none z-10 rotate-45"
+          className="absolute pointer-events-none select-none z-20"
           style={{
             left: '1127px',
             top: '672px',
@@ -245,16 +245,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onSearch }) => {
         
         {/* Floating Accents */}
         <img
-          src="/hero/shape_coil_lime.png"
+          src="/hero/ornament_top_left_coil_lime.png"
           alt=""
           aria-hidden="true"
-          className="absolute top-12 -left-8 w-24 sm:w-36 h-auto pointer-events-none opacity-80"
+          className="absolute top-12 -left-8 w-24 sm:w-36 h-auto pointer-events-none opacity-90"
         />
         <img
-          src="/hero/shape_cylinder_lime.png"
+          src="/hero/ornament_top_right_cylinder_lime.png"
           alt=""
           aria-hidden="true"
-          className="absolute top-8 -right-8 w-24 sm:w-36 h-auto pointer-events-none opacity-80"
+          className="absolute top-8 -right-8 w-24 sm:w-36 h-auto pointer-events-none opacity-90"
         />
 
         {/* Headings */}
