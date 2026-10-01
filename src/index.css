@@ -55,10 +55,11 @@
 
 @layer utilities {
   .bg-grid-hero {
-    background-size: 80px 80px;
+    background-size: 120px 120px;
+    background-position: center top;
     background-image: 
-      linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+      linear-gradient(to right, rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
   }
 
   @keyframes floatSlow {

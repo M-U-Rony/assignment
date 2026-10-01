@@ -138,11 +138,13 @@ export function App() {
       </aside>
 
       {/* Main Navbar */}
-      <Navbar
-        currentRoute={currentRoute}
-        onNavigate={handleNavigate}
-        cartCount={cartCount}
-      />
+      <div className={currentRoute === 'home' ? 'absolute top-0 left-0 w-full z-40' : ''}>
+        <Navbar
+          currentRoute={currentRoute}
+          onNavigate={handleNavigate}
+          cartCount={cartCount}
+        />
+      </div>
 
       {/* Main Content Area */}
       <main className="flex-1 flex flex-col">

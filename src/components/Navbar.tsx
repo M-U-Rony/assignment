@@ -15,12 +15,14 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, onNavigate, cartCo
     setMobileMenuOpen(false);
   };
 
+  const isHome = currentRoute === 'home';
+
   return (
-    <header className="w-full bg-[#003be2] text-[#f5f5f6] relative z-40 transition-colors">
+    <header className={`w-full ${isHome ? 'bg-transparent' : 'bg-[#003be2]'} text-[#f5f5f6] relative z-40 transition-colors`}>
       <div className="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-[120px]">
-        <div className="flex items-center justify-between h-[100px] sm:h-[120px]">
+        <div className="flex items-center justify-between h-[100px] lg:h-[120px]">
           
-          {/* 1. Header Logo (from Figma: 1:1787) */}
+          {/* 1. Header Logo (Figma: 1:1787) */}
           <div 
             onClick={() => handleNav('home')} 
             className="flex items-center cursor-pointer select-none group"
@@ -35,46 +37,46 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, onNavigate, cartCo
             />
           </div>
 
-          {/* 2. Navigation Links (from Figma: Header_Nav_Menu 1:1779) */}
-          <nav className="hidden md:flex items-center space-x-10 text-base" aria-label="Main Navigation">
+          {/* 2. Navigation Links (Figma: Header_Nav_Menu 1:1779) */}
+          <nav className="hidden md:flex items-center space-x-10 text-[16px] font-sans" aria-label="Main Navigation">
             <button
               onClick={() => handleNav('home')}
-              className={`transition-colors cursor-pointer hover:text-white font-medium ${
-                currentRoute === 'home' ? 'text-white' : 'text-[#f5f5f6]/80'
+              className={`transition-colors cursor-pointer hover:text-white ${
+                currentRoute === 'home' ? 'text-white font-medium' : 'text-white/85 font-normal'
               }`}
             >
               Home
             </button>
             <button
               onClick={() => handleNav('courses')}
-              className={`transition-colors cursor-pointer hover:text-white font-normal ${
-                currentRoute === 'courses' ? 'text-white' : 'text-[#f5f5f6]/80'
+              className={`transition-colors cursor-pointer hover:text-white ${
+                currentRoute === 'courses' ? 'text-white font-medium' : 'text-white/85 font-normal'
               }`}
             >
               Courses
             </button>
             <button
               onClick={() => handleNav('creator')}
-              className={`transition-colors cursor-pointer hover:text-white font-normal ${
-                currentRoute === 'creator' ? 'text-white' : 'text-[#f5f5f6]/80'
+              className={`transition-colors cursor-pointer hover:text-white ${
+                currentRoute === 'creator' ? 'text-white font-medium' : 'text-white/85 font-normal'
               }`}
             >
               Creators
             </button>
           </nav>
 
-          {/* 3. Action Links: Sign In, Join Us, Cart (from Figma: Header_Nav_Menu 1:1783) */}
-          <div className="hidden md:flex items-center space-x-8 text-base">
+          {/* 3. Action Links: Sign In, Join Us, Cart (Figma: Header_Nav_Menu 1:1783) */}
+          <div className="hidden md:flex items-center space-x-8 text-[16px] font-sans">
             <button
               onClick={() => handleNav('login')}
-              className="font-normal text-[#f5f5f6] hover:text-white transition-colors cursor-pointer"
+              className="font-normal text-white hover:text-white/80 transition-colors cursor-pointer"
             >
               Sign In
             </button>
 
             <button
               onClick={() => handleNav('register')}
-              className="font-normal text-[#f5f5f6] hover:text-white transition-colors cursor-pointer"
+              className="font-normal text-white hover:text-white/80 transition-colors cursor-pointer"
             >
               Join Us
             </button>
@@ -83,7 +85,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, onNavigate, cartCo
             <div className="relative flex items-center">
               <button 
                 onClick={() => onNavigate('course-details', 'build-digital-asset')}
-                className="p-1.5 text-[#f5f5f6] hover:text-white transition-colors cursor-pointer"
+                className="p-1.5 text-white hover:text-[#d4fb20] transition-colors cursor-pointer"
                 title="Shopping Bag"
                 aria-label="Shopping Cart"
               >
@@ -128,7 +130,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, onNavigate, cartCo
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#071e5f] border-t border-white/10 px-6 py-6 space-y-4 animate-fadeIn">
+        <div className="md:hidden bg-[#003be2] border-t border-white/10 px-6 py-6 space-y-4 animate-fadeIn">
           <button
             onClick={() => handleNav('home')}
             className="block w-full text-left py-2 font-medium text-white hover:text-[#d4fb20]"

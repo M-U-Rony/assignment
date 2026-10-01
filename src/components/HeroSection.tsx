@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, Star } from 'lucide-react';
+import { Search } from 'lucide-react';
 
 interface HeroSectionProps {
   onSearch: (query: string) => void;
@@ -16,203 +16,302 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onSearch }) => {
   };
 
   return (
-    <section className="relative w-full bg-[#003be2] bg-grid-hero text-white overflow-hidden pt-8 sm:pt-14 pb-0">
+    <section className="w-full bg-[#003be2] bg-grid-hero relative overflow-hidden">
       
-      {/* 3D Floating Ornaments (Exact Figma Layers from 46:79) */}
-      {/* 1. Top-Left Neon Lime Spring/Coil */}
-      <img
-        src="/hero/shape_coil_lime.png"
-        alt=""
-        aria-hidden="true"
-        className="absolute top-10 -left-12 sm:left-4 lg:left-12 w-28 sm:w-44 lg:w-56 h-auto pointer-events-none select-none z-10 drop-shadow-2xl animate-float-slow"
-      />
-
-      {/* 2. Mid-Left White Zig-Zag Spring */}
-      <img
-        src="/hero/shape_zigzag_white.png"
-        alt=""
-        aria-hidden="true"
-        className="absolute top-56 sm:top-72 left-4 sm:left-16 lg:left-24 w-16 sm:w-24 lg:w-32 h-auto pointer-events-none select-none z-10 drop-shadow-xl"
-      />
-
-      {/* 3. Bottom-Left White 3D Donut/Torus */}
-      <img
-        src="/hero/shape_donut_white.png"
-        alt=""
-        aria-hidden="true"
-        className="absolute bottom-16 -left-8 sm:left-2 lg:left-10 w-32 sm:w-52 lg:w-72 h-auto pointer-events-none select-none z-10 drop-shadow-2xl"
-      />
-
-      {/* 4. Top-Right Neon Lime Cylinder */}
-      <img
-        src="/hero/shape_cylinder_lime.png"
-        alt=""
-        aria-hidden="true"
-        className="absolute -top-8 -right-12 sm:right-0 lg:right-6 w-36 sm:w-56 lg:w-72 h-auto pointer-events-none select-none z-10 drop-shadow-2xl"
-      />
-
-      {/* 5. Mid-Right White 3D Pyramid / Cone */}
-      <img
-        src="/hero/shape_cone_white.png"
-        alt=""
-        aria-hidden="true"
-        className="absolute top-52 sm:top-64 right-6 sm:right-20 lg:right-32 w-20 sm:w-32 lg:w-40 h-auto pointer-events-none select-none z-10 drop-shadow-xl"
-      />
-
-      {/* 6. Bottom-Right White Zig-Zag Spring */}
-      <img
-        src="/hero/shape_zigzag_white.png"
-        alt=""
-        aria-hidden="true"
-        className="absolute bottom-12 -right-6 sm:right-6 lg:right-16 w-28 sm:w-40 lg:w-52 h-auto pointer-events-none select-none z-10 drop-shadow-2xl rotate-45"
-      />
-
-      {/* Hero Content Area */}
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-[120px] relative z-20">
+      {/* ========================================================================= */}
+      {/* DESKTOP VIEW (Exact 1440x1024 Canvas matching Figma Frame 1:1695)       */}
+      {/* ========================================================================= */}
+      <div className="hidden lg:block relative w-[1440px] h-[1024px] mx-auto overflow-hidden">
         
-        {/* Title & Subtitle Frame (Figma: 1:1792) */}
-        <div className="text-center max-w-[950px] mx-auto">
-          <h1 className="font-heading font-semibold text-3xl sm:text-5xl md:text-6xl lg:text-[72px] text-white tracking-tight leading-[1.15]">
-            Get Access to Hundreds <br className="hidden sm:inline" />
+        {/* 1. 3D Ornaments Group (Figma: 46:79) */}
+        {/* Top-Left Lime Coil (46:90) */}
+        <img
+          src="/hero/shape_coil_lime.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute pointer-events-none select-none z-10 animate-float-slow"
+          style={{
+            left: '-118px',
+            top: '221px',
+            width: '385px',
+            height: '385px'
+          }}
+        />
+
+        {/* Mid-Left White Zigzag (46:95) */}
+        <img
+          src="/hero/shape_zigzag_white.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute pointer-events-none select-none z-10"
+          style={{
+            left: '183px',
+            top: '477px',
+            width: '175px',
+            height: '175px'
+          }}
+        />
+
+        {/* Bottom-Left White Donut (46:105) */}
+        <img
+          src="/hero/shape_donut_white.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute pointer-events-none select-none z-10"
+          style={{
+            left: '18px',
+            top: '682px',
+            width: '342px',
+            height: '342px'
+          }}
+        />
+
+        {/* Top-Right Lime Cylinder (46:110) */}
+        <img
+          src="/hero/shape_cylinder_lime.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute pointer-events-none select-none z-10"
+          style={{
+            left: '1231px',
+            top: '221px',
+            width: '370px',
+            height: '370px'
+          }}
+        />
+
+        {/* Mid-Right White Cone / Pyramid (46:80) */}
+        <img
+          src="/hero/shape_cone_white.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute pointer-events-none select-none z-10"
+          style={{
+            left: '1106px',
+            top: '464px',
+            width: '188px',
+            height: '188px'
+          }}
+        />
+
+        {/* Bottom-Right White Zigzag (46:85) */}
+        <img
+          src="/hero/shape_zigzag_white.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute pointer-events-none select-none z-10 rotate-45"
+          style={{
+            left: '1127px',
+            top: '672px',
+            width: '330px',
+            height: '330px'
+          }}
+        />
+
+        {/* 2. Hero Headings (Figma: Frame 1 1:1792) */}
+        <div 
+          className="absolute z-20 text-center flex flex-col items-center"
+          style={{
+            left: '253px',
+            top: '169px',
+            width: '935px',
+            height: '233px'
+          }}
+        >
+          <h1 className="font-heading font-semibold text-[72px] text-white tracking-[-0.72px] leading-[86.4px] w-full text-center">
+            Get Access to Hundreds <br />
             Courses Available
           </h1>
 
-          <p className="font-sans font-normal text-sm sm:text-base md:text-[18px] text-[#e5e6e8] max-w-[820px] mx-auto mt-4 sm:mt-5 leading-relaxed sm:leading-[1.6]">
+          <p className="font-sans font-normal text-[18px] text-[#e5e6e8] leading-[28.8px] mt-8 max-w-[819px] text-center">
             Unlock your creativity, gain valuable knowledge, and grow your business with our wide range of courses.
           </p>
-
-          {/* Search Bar (Figma: Search_Bar 1:1772) */}
-          <form 
-            onSubmit={handleSubmit} 
-            className="mt-6 sm:mt-8 flex items-center justify-center gap-3 sm:gap-4 max-w-[581px] mx-auto"
-          >
-            {/* Input Container */}
-            <div className="flex-1 bg-white rounded-full h-[48px] sm:h-[52px] px-5 sm:px-6 flex items-center gap-3 shadow-lg transition-all focus-within:ring-2 focus-within:ring-[#d4fb20]">
-              <Search className="w-5 h-5 text-[#82868e] shrink-0" />
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Course, topic, creator"
-                className="w-full bg-transparent font-sans text-sm sm:text-[16px] text-[#242528] placeholder-[#82868e] focus:outline-none"
-              />
-            </div>
-
-            {/* Search Button */}
-            <button
-              type="submit"
-              className="bg-[#d4fb20] hover:bg-[#cbfc01] text-[#242528] font-sans font-medium text-sm sm:text-[16px] h-[48px] sm:h-[52px] px-6 sm:px-8 rounded-full transition-all duration-200 shrink-0 cursor-pointer shadow-md hover:scale-105 active:scale-95"
-            >
-              Search
-            </button>
-          </form>
         </div>
 
-        {/* Hero Visual Composition: Student + Lime Disc + Badges */}
-        <div className="relative mt-8 sm:mt-12 md:mt-16 flex items-end justify-center w-full max-w-[1000px] mx-auto">
-          
-          {/* 1. The Giant Lime Disc (Figma: Ellipse 7) */}
-          <div 
-            className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[340px] h-[340px] sm:w-[540px] sm:h-[540px] md:w-[680px] md:h-[680px] lg:w-[840px] lg:h-[840px] rounded-full bg-[#d4fb20] z-0 pointer-events-none"
-            style={{
-              boxShadow: '0 20px 80px rgba(0, 0, 0, 0.25)'
-            }}
-          />
-
-          {/* 2. Hero Cutout Student (Figma: 1:1796) */}
-          <div className="relative z-10 flex justify-center items-end max-w-[320px] sm:max-w-[460px] md:max-w-[540px] lg:max-w-[580px]">
-            <img
-              src="/hero/student.png"
-              alt="ByteSpace student learning online with laptop and headphones"
-              className="w-full h-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.35)]"
+        {/* 3. Hero Search Bar (Figma: Search_Bar 1:1772) */}
+        <form 
+          onSubmit={handleSubmit}
+          className="absolute z-20 flex items-center justify-center gap-4"
+          style={{
+            left: '430px',
+            top: '462px',
+            width: '581px',
+            height: '52px'
+          }}
+        >
+          {/* Input Box: 461px x 52px */}
+          <div className="w-[461px] h-[52px] bg-white rounded-[24px] px-6 flex items-center gap-2.5 shadow-lg">
+            <Search className="w-5 h-5 text-[#82868e] shrink-0 stroke-[2]" />
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Course, topic, creator"
+              className="w-full bg-transparent font-sans text-[18px] text-[#242528] placeholder-[#82868e] focus:outline-none"
             />
           </div>
 
-          {/* 3. Floating Badge 1: Top Left - UI/UX Design (Figma: 46:126) */}
-          <div 
-            className="absolute top-12 sm:top-20 md:top-24 left-0 sm:left-4 md:left-8 lg:left-12 z-20 bg-white/95 backdrop-blur-md rounded-2xl p-3.5 sm:p-4 shadow-[0_10px_30px_rgba(0,0,0,0.12)] border border-white/60 transition-transform hover:scale-105"
-            style={{ minWidth: '170px' }}
+          {/* Search Button: 104px x 46px (centered in 52px line) */}
+          <button
+            type="submit"
+            className="w-[104px] h-[46px] bg-[#d4fb20] hover:bg-[#cbfc01] text-[#242528] font-sans font-medium text-[18px] rounded-[24px] flex items-center justify-center transition-all cursor-pointer shadow-md hover:scale-105 active:scale-95 shrink-0"
           >
-            <p className="font-sans font-medium text-sm sm:text-base text-[#242528] leading-tight">
-              UI/UX Design
-            </p>
-            <p className="font-sans font-normal text-xs sm:text-[13px] text-[#82868e] mt-1 flex items-center gap-1.5">
-              <span>200 Courses</span>
-              <span className="text-[10px] text-[#82868e]">•</span>
-              <span>1000+ Students</span>
-            </p>
-          </div>
+            Search
+          </button>
+        </form>
 
-          {/* 4. Floating Badge 2: Top Right - Learning Progress (Figma: 1:1797) */}
-          <div 
-            className="absolute top-16 sm:top-24 md:top-28 right-0 sm:right-4 md:right-8 lg:right-12 z-20 bg-white/95 backdrop-blur-md rounded-2xl p-4 sm:p-5 shadow-[0_10px_30px_rgba(0,0,0,0.12)] border border-white/60 transition-transform hover:scale-105"
-            style={{ minWidth: '190px' }}
-          >
-            <p className="font-sans font-medium text-xs sm:text-[14px] text-[#82868e] leading-tight">
-              Learning Progress
-            </p>
-            <p className="font-heading font-semibold text-3xl sm:text-[44px] text-[#242528] mt-1 leading-none">
-              55%
-            </p>
-            {/* Progress track */}
-            <div className="w-full bg-[#f6f6f6] h-2 rounded-full overflow-hidden mt-3 sm:mt-4">
-              <div 
-                className="bg-[#d4fb20] h-full rounded-full transition-all duration-1000 ease-out" 
-                style={{ width: '55%' }} 
-              />
-            </div>
-          </div>
+        {/* 4. Giant Lime Disc (Figma: Ellipse 7 1:1866) */}
+        <div 
+          className="absolute rounded-full bg-[#d4fb20] pointer-events-none z-0"
+          style={{
+            left: '145px',
+            top: '582px',
+            width: '1149px',
+            height: '1149px',
+            boxShadow: '0 20px 80px rgba(0, 0, 0, 0.2)'
+          }}
+        />
 
-          {/* 5. Floating Badge 3: Bottom Left - Happy Students (Figma: 1:1821) */}
-          <div 
-            className="absolute bottom-6 sm:bottom-12 md:bottom-16 left-2 sm:left-8 md:left-12 lg:left-16 z-20 bg-white/95 backdrop-blur-md rounded-2xl p-3.5 sm:p-4 shadow-[0_10px_30px_rgba(0,0,0,0.12)] border border-white/60 transition-transform hover:scale-105"
-          >
-            <p className="font-sans font-medium text-sm sm:text-base text-[#242528] leading-tight">
-              Happy Students
-            </p>
-            <div className="flex items-center gap-1.5 mt-1">
-              <span className="font-sans text-xs sm:text-[13px] text-[#82868e] font-normal">
-                4.5 (240)
-              </span>
-              <Star className="w-3.5 h-3.5 fill-[#d4fb20] text-[#d4fb20]" />
-            </div>
+        {/* 5. Student Cutout (Figma: Image 1:1796) */}
+        <img
+          src="/hero_img.png"
+          alt="ByteSpace student learning online"
+          className="absolute pointer-events-none select-none z-10 object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.35)]"
+          style={{
+            left: '431px',
+            top: '512px',
+            width: '578px',
+            height: '541px'
+          }}
+        />
 
-            {/* Overlapping Avatars + 2K+ counter */}
-            <div className="flex items-center -space-x-2 mt-2.5">
-              <img 
-                src="/hero/avatar_1.png" 
-                alt="Student 1" 
-                className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-white object-cover shadow-sm" 
-              />
-              <img 
-                src="/hero/avatar_2.png" 
-                alt="Student 2" 
-                className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-white object-cover shadow-sm" 
-              />
-              <img 
-                src="/hero/avatar_3.png" 
-                alt="Student 3" 
-                className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-white object-cover shadow-sm" 
-              />
-              <img 
-                src="/hero/avatar_4.png" 
-                alt="Student 4" 
-                className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-white object-cover shadow-sm" 
-              />
-              <img 
-                src="/hero/avatar_5.png" 
-                alt="Student 5" 
-                className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-white object-cover shadow-sm" 
-              />
-              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#d4fb20] border-2 border-white flex items-center justify-center text-[10px] sm:text-xs font-bold text-[#242528] shadow-sm">
-                2K+
-              </div>
-            </div>
-          </div>
+        {/* 6. Floating Badge 1: UI/UX Design (Figma: 46:126 at left=404px, top=639px) */}
+        <div 
+          className="absolute z-30 transition-transform hover:scale-105"
+          style={{
+            left: '404px',
+            top: '639px',
+            width: '208px',
+            height: '70px'
+          }}
+        >
+          <img 
+            src="/figma-assets/hero_badge_uiux.svg" 
+            alt="UI/UX Design - 200 Courses, 1000+ Students" 
+            className="w-full h-full object-contain drop-shadow-xl" 
+          />
+        </div>
 
+        {/* 7. Floating Badge 2: Learning Progress (Figma: 1:1797 at left=842px, top=651px) */}
+        <div 
+          className="absolute z-30 transition-transform hover:scale-105"
+          style={{
+            left: '842px',
+            top: '651px',
+            width: '232px',
+            height: '131px'
+          }}
+        >
+          <img 
+            src="/figma-assets/hero_badge_progress.svg" 
+            alt="Learning Progress 55%" 
+            className="w-full h-full object-contain drop-shadow-xl" 
+          />
+        </div>
+
+        {/* 8. Floating Badge 3: Happy Students (Figma: 1:1821 at left=328px, top=837px) */}
+        <div 
+          className="absolute z-30 bg-white rounded-[16px] px-5 py-3.5 shadow-2xl border border-white/60 transition-transform hover:scale-105 flex items-center justify-center"
+          style={{
+            left: '328px',
+            top: '837px',
+            width: '258px',
+            height: '121px'
+          }}
+        >
+          <img 
+            src="/Auto Layout Vertical (2).png" 
+            alt="Happy Students 4.5 (240) 2K+" 
+            className="w-full h-auto object-contain" 
+          />
         </div>
 
       </div>
+
+      {/* ========================================================================= */}
+      {/* TABLET & MOBILE VIEW (< 1024px)                                          */}
+      {/* ========================================================================= */}
+      <div className="lg:hidden px-4 sm:px-8 pt-28 pb-16 flex flex-col items-center text-center relative z-20">
+        
+        {/* Floating Accents */}
+        <img
+          src="/hero/shape_coil_lime.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute top-12 -left-8 w-24 sm:w-36 h-auto pointer-events-none opacity-80"
+        />
+        <img
+          src="/hero/shape_cylinder_lime.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute top-8 -right-8 w-24 sm:w-36 h-auto pointer-events-none opacity-80"
+        />
+
+        {/* Headings */}
+        <h1 className="font-heading font-semibold text-3xl sm:text-5xl text-white tracking-tight leading-tight">
+          Get Access to Hundreds <br /> Courses Available
+        </h1>
+
+        <p className="font-sans font-normal text-sm sm:text-base text-[#e5e6e8] max-w-xl mx-auto mt-4 leading-relaxed">
+          Unlock your creativity, gain valuable knowledge, and grow your business with our wide range of courses.
+        </p>
+
+        {/* Search Bar */}
+        <form 
+          onSubmit={handleSubmit}
+          className="mt-6 flex flex-col sm:flex-row items-center gap-3 w-full max-w-md mx-auto"
+        >
+          <div className="w-full bg-white rounded-full h-12 px-5 flex items-center gap-2.5 shadow-md">
+            <Search className="w-5 h-5 text-[#82868e] shrink-0" />
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Course, topic, creator"
+              className="w-full bg-transparent font-sans text-sm text-[#242528] placeholder-[#82868e] focus:outline-none"
+            />
+          </div>
+          <button
+            type="submit"
+            className="w-full sm:w-auto bg-[#d4fb20] text-[#242528] font-sans font-medium text-sm h-12 px-7 rounded-full transition-all cursor-pointer shadow-md shrink-0"
+          >
+            Search
+          </button>
+        </form>
+
+        {/* Visual Student + Disc */}
+        <div className="relative mt-12 w-full max-w-sm sm:max-w-md mx-auto flex items-end justify-center">
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[280px] h-[280px] sm:w-[360px] sm:h-[360px] rounded-full bg-[#d4fb20] z-0" />
+          <img
+            src="/hero_img.png"
+            alt="ByteSpace student"
+            className="relative z-10 w-full max-w-[260px] sm:max-w-[340px] h-auto object-contain"
+          />
+
+          {/* Badges on mobile */}
+          <div className="absolute -top-4 -left-2 z-20 w-36 sm:w-44">
+            <img src="/figma-assets/hero_badge_uiux.svg" alt="UI/UX Design" className="w-full h-auto drop-shadow-lg" />
+          </div>
+          <div className="absolute top-12 -right-2 z-20 w-40 sm:w-48">
+            <img src="/figma-assets/hero_badge_progress.svg" alt="Learning Progress" className="w-full h-auto drop-shadow-lg" />
+          </div>
+          <div className="absolute bottom-4 -left-4 z-20 w-44 sm:w-52 bg-white rounded-xl p-2 shadow-xl border border-white/60">
+            <img src="/Auto Layout Vertical (2).png" alt="Happy Students" className="w-full h-auto" />
+          </div>
+        </div>
+
+      </div>
+
     </section>
   );
 };
