@@ -11,21 +11,82 @@ export const ProfessionalGrowthSection: React.FC<ProfessionalGrowthSectionProps>
   return (
     <section 
       aria-label="Professional Growth and Course Creation"
-      className="relative w-full bg-white overflow-hidden py-16 lg:py-[100px]"
+      className="relative w-full bg-[#FAFAFA] overflow-hidden py-16 lg:py-[100px]"
     >
-      {/* Ambient background glows matching Figma Group 5 & Ellipse 12 */}
-      <div 
-        aria-hidden="true"
-        className="pointer-events-none absolute -top-40 left-1/4 w-[600px] h-[600px] rounded-full bg-[#003be2]/5 blur-[120px]"
-      />
-      <div 
-        aria-hidden="true"
-        className="pointer-events-none absolute top-1/3 -left-40 w-[600px] h-[600px] rounded-full bg-[#d4fb20]/15 blur-[140px]"
-      />
-      <div 
-        aria-hidden="true"
-        className="pointer-events-none absolute bottom-10 -right-40 w-[600px] h-[600px] rounded-full bg-[#003be2]/5 blur-[140px]"
-      />
+      {/* Ambient background glows matching Figma Group 5 & Ellipse 12 (Node 34:1307, 34:1309) */}
+      <div aria-hidden="true" className="absolute inset-0 pointer-events-none overflow-hidden select-none">
+        <div className="relative w-full max-w-[1440px] h-full mx-auto">
+          {/* 1. Top-Center Lime/Yellow Glow (Figma Ellipse 11 Node 34:1308: relPos -152, -466, 1137x1137) */}
+          <div 
+            style={{
+              position: 'absolute',
+              left: '-152px',
+              top: '-466px',
+              width: '1137px',
+              height: '1137px',
+              borderRadius: '9999px',
+              background: 'radial-gradient(circle, rgba(203, 252, 1, 0.42) 0%, rgba(203, 252, 1, 0.12) 53%, rgba(203, 252, 1, 0.03) 75%, transparent 100%)',
+              filter: 'blur(40px)',
+            }}
+          />
+
+          {/* 2. Left Blue Glow (Figma Ellipse 9 Node 34:1305: relPos -508, 183, 1137x1137) */}
+          <div 
+            style={{
+              position: 'absolute',
+              left: '-508px',
+              top: '183px',
+              width: '1137px',
+              height: '1137px',
+              borderRadius: '9999px',
+              background: 'radial-gradient(circle, rgba(0, 59, 226, 0.18) 0%, rgba(0, 59, 226, 0.05) 53%, rgba(0, 59, 226, 0.01) 75%, transparent 100%)',
+              filter: 'blur(40px)',
+            }}
+          />
+
+          {/* 3. Top-Right Blue Glow (Figma Ellipse 10 Node 34:1306: relPos 811, -458, 1137x1137) */}
+          <div 
+            style={{
+              position: 'absolute',
+              left: '811px',
+              top: '-458px',
+              width: '1137px',
+              height: '1137px',
+              borderRadius: '9999px',
+              background: 'radial-gradient(circle, rgba(0, 59, 226, 0.09) 0%, rgba(0, 59, 226, 0.02) 53%, transparent 100%)',
+              filter: 'blur(40px)',
+            }}
+          />
+
+          {/* 4. Bottom-Right Blue Glow (Figma Ellipse 8 Node 34:1304: relPos 722, 788, 1137x1137) */}
+          <div 
+            style={{
+              position: 'absolute',
+              left: '722px',
+              top: '788px',
+              width: '1137px',
+              height: '1137px',
+              borderRadius: '9999px',
+              background: 'radial-gradient(circle, rgba(0, 59, 226, 0.24) 0%, rgba(0, 59, 226, 0.06) 53%, rgba(0, 59, 226, 0.015) 75%, transparent 100%)',
+              filter: 'blur(40px)',
+            }}
+          />
+
+          {/* 5. Bottom-Left Lime Glow (Figma Ellipse 12 Node 34:1309: relPos -287, 946, 672x672) */}
+          <div 
+            style={{
+              position: 'absolute',
+              left: '-287px',
+              top: '946px',
+              width: '672px',
+              height: '672px',
+              borderRadius: '9999px',
+              background: 'radial-gradient(circle, rgba(203, 252, 1, 0.55) 0%, rgba(203, 252, 1, 0.14) 53%, rgba(203, 252, 1, 0.035) 75%, transparent 100%)',
+              filter: 'blur(40px)',
+            }}
+          />
+        </div>
+      </div>
 
       <div className="relative z-10 w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-[121px] flex flex-col gap-20 lg:gap-[100px]">
         
