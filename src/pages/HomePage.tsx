@@ -1,10 +1,12 @@
 import React from 'react';
-import { CheckCircle2, PenTool, Code, Server, Briefcase, Megaphone, Camera } from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
 import { HeroSection } from '../components/HeroSection';
 import { BrandPartnersSection } from '../components/BrandPartnersSection';
 import { FeaturedCoursesSection } from '../components/FeaturedCoursesSection';
 import { LimeSquiggle, Cone3D, LimeDonut3D } from '../components/GeometricDecorations';
 import { testimonials } from '../data/coursesData';
+
+import { LearningPathsSection } from '../components/LearningPathsSection';
 
 interface HomePageProps {
   onNavigate: (route: string, param?: string) => void;
@@ -25,49 +27,8 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
       {/* 3. DISCOVER YOUR PASSION, BUILD YOUR SKILLS (Figma: Frame 3, Category Pills, Frame 8) */}
       <FeaturedCoursesSection onNavigate={onNavigate} />
 
-      {/* 4. EXPLORE DIVERSE LEARNING PATHS */}
-      <section className="w-full py-20 bg-white border-t border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-              Explore Diverse Learning Paths at Bytespace
-            </h2>
-            <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
-              At Bytespace, we believe in empowering individuals through knowledge. Our diverse range of courses spans various fields, ensuring there's something for everyone. Unleash your potential and explore our carefully curated categories.
-            </p>
-          </div>
-
-          {/* 6 Learning Path Cards */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-5">
-            {[
-              { id: 'design', name: 'Design', icon: PenTool },
-              { id: 'development', name: 'Development', icon: Code },
-              { id: 'it-software', name: 'IT & Software', icon: Server },
-              { id: 'business', name: 'Business', icon: Briefcase },
-              { id: 'marketing', name: 'Marketing', icon: Megaphone },
-              { id: 'photography', name: 'Photography', icon: Camera },
-            ].map((path) => {
-              const IconComp = path.icon;
-              return (
-                <div
-                  key={path.id}
-                  onClick={() => onNavigate('courses')}
-                  className="group bg-[#F8F9FC] hover:bg-[#194BFB] border border-slate-200 hover:border-transparent rounded-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5 cursor-pointer"
-                >
-                  <div className="w-14 h-14 rounded-2xl bg-[#D4FF00] group-hover:bg-white flex items-center justify-center mb-4 transition-colors shadow-sm">
-                    <IconComp className="w-7 h-7 text-slate-900 group-hover:text-[#194BFB] transition-colors" />
-                  </div>
-                  <h3 className="font-bold text-slate-900 group-hover:text-white text-sm transition-colors">
-                    {path.name}
-                  </h3>
-                </div>
-              );
-            })}
-          </div>
-
-        </div>
-      </section>
+      {/* 4. EXPLORE DIVERSE LEARNING PATHS (Figma: Frame 9 Node 34:684 & Frame 10 Node 34:725) */}
+      <LearningPathsSection onNavigate={onNavigate} />
 
       {/* 5. YOUR PATH TO PROFESSIONAL GROWTH STARTS HERE */}
       <section className="w-full py-20 bg-gradient-to-b from-white to-[#F8F9FC]">
