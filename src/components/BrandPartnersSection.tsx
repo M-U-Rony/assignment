@@ -15,25 +15,23 @@ export const BrandPartnersSection: React.FC = () => {
       className="w-full bg-[#f5f5f6] border-y border-[#e5e6e8]/40 overflow-hidden"
     >
       {/* Exact 1440x202 Desktop Layout matching Figma Frame 2 (Node 1:1794) */}
-      <div className="w-full max-w-[1440px] mx-auto min-h-[202px] px-4 sm:px-8 md:px-12 lg:px-[154px] py-10 lg:py-[80px] flex items-center justify-center">
-        <div className="w-full overflow-x-auto no-scrollbar flex items-center justify-center">
-          <div 
-            className="flex flex-nowrap items-center justify-between gap-6 sm:gap-10 md:gap-14 lg:gap-[72px] shrink-0 w-full max-w-[1132px]"
-          >
-            {PARTNER_LOGOS.map((partner) => (
-              <div 
-                key={partner.id}
-                className="flex items-center justify-center shrink-0 transition-all duration-300 hover:scale-105 opacity-85 hover:opacity-100 cursor-pointer"
-              >
-                <img
-                  src={partner.src}
-                  alt={partner.name}
-                  className="h-7 sm:h-8 md:h-10 lg:h-[42px] w-auto max-w-[130px] sm:max-w-[150px] lg:max-w-[170px] object-contain select-none"
-                  loading="lazy"
-                />
-              </div>
-            ))}
-          </div>
+      <div className="w-full max-w-[1440px] mx-auto min-h-[202px] px-6 sm:px-10 lg:px-16 xl:px-[154px] py-10 lg:py-[80px] flex items-center justify-center">
+        <div 
+          className="flex items-center justify-between gap-4 sm:gap-8 md:gap-12 lg:gap-[72px] w-full max-w-[1132px] mx-auto"
+        >
+          {PARTNER_LOGOS.map((partner) => (
+            <div 
+              key={partner.id}
+              className="flex items-center justify-center transition-all duration-300 hover:scale-105 opacity-85 hover:opacity-100 cursor-pointer min-w-0 flex-1 lg:flex-initial"
+            >
+              <img
+                src={partner.src}
+                alt={partner.name}
+                className="h-6 sm:h-8 md:h-10 lg:h-[42px] w-auto max-w-full object-contain select-none"
+                loading="lazy"
+              />
+            </div>
+          ))}
         </div>
       </div>
     </section>
