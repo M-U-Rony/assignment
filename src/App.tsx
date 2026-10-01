@@ -37,13 +37,15 @@ export function App() {
     <div className="min-h-screen flex flex-col bg-[#F8F9FC] text-slate-900 font-sans selection:bg-[#D4FF00] selection:text-black">
 
       {/* Main Navbar */}
-      <div className={currentRoute === 'home' ? 'absolute top-0 left-0 w-full z-40' : ''}>
-        <Navbar
-          currentRoute={currentRoute}
-          onNavigate={handleNavigate}
-          cartCount={cartCount}
-        />
-      </div>
+      {!isAuthPage && (
+        <div className={currentRoute === 'home' ? 'absolute top-0 left-0 w-full z-40' : ''}>
+          <Navbar
+            currentRoute={currentRoute}
+            onNavigate={handleNavigate}
+            cartCount={cartCount}
+          />
+        </div>
+      )}
 
       {/* Main Content Area */}
       <main className="flex-1 flex flex-col">

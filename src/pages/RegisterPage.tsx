@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Torus3D, LimePill3D, LimeSquiggle } from '../components/GeometricDecorations';
+import { AuthHeader } from '../components/AuthHeader';
+import { AuthVisualShowcase } from '../components/AuthVisualShowcase';
 
 interface RegisterPageProps {
   onNavigate: (route: string) => void;
@@ -20,165 +21,135 @@ export const RegisterPage: React.FC<RegisterPageProps> = ({ onNavigate }) => {
   };
 
   return (
-    <div className="w-full min-h-[calc(100vh-80px)] flex flex-col lg:flex-row bg-[#F8F9FC]">
+    <div className="relative w-full min-h-screen bg-[#003BE2] flex flex-col overflow-x-hidden">
       
-      {/* LEFT COLUMN: BLUE GRID BRANDING */}
-      <div className="w-full lg:w-1/2 bg-[#194BFB] bg-grid-pattern p-8 sm:p-14 lg:p-16 flex flex-col justify-between relative overflow-hidden text-white min-h-[480px]">
-        {/* Floating 3D Accents */}
-        <div className="absolute top-8 right-12 pointer-events-none opacity-85">
-          <Torus3D className="w-20 h-20" />
-        </div>
-        <div className="absolute bottom-10 left-6 pointer-events-none opacity-85">
-          <LimeSquiggle className="w-20 h-20" />
-        </div>
-        <div className="absolute top-1/2 left-4 pointer-events-none opacity-80">
-          <LimePill3D className="w-16 h-16" />
-        </div>
+      {/* 1. Background 120px Grid Overlay (Figma: Group 4 49:156) */}
+      <div 
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px)
+          `,
+          backgroundSize: '120px 120px'
+        }}
+      />
 
-        {/* Top Logo */}
-        <div 
-          onClick={() => onNavigate('home')}
-          className="flex items-center gap-2 cursor-pointer z-10 w-fit"
-        >
-          <div className="w-8 h-8 rounded-lg bg-[#D4FF00] flex items-center justify-center font-extrabold text-blue-900 text-lg">
-            b
-          </div>
-          <span className="text-2xl font-bold tracking-tight text-white">ByteSpace</span>
-        </div>
+      {/* 2. Top Header (Figma: Header_Frame 47:501) */}
+      <AuthHeader onNavigate={onNavigate} />
 
-        {/* Middle Content */}
-        <div className="my-auto py-8 max-w-md z-10 space-y-4">
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
-            Sign up and come in
-          </h2>
-          <p className="text-xs sm:text-sm text-blue-100 leading-relaxed font-normal">
-            The registration process is straightforward, uncomplicated, and efficient, allowing users to sign up quickly, easily, and at no cost.
-          </p>
-
-          {/* Floating Course Snapshot Card */}
-          <div className="pt-6 relative">
-            <div className="bg-white/95 backdrop-blur-md rounded-2xl p-4 shadow-2xl border border-white/20 text-slate-900 max-w-xs">
-              <div className="aspect-[16/9] rounded-xl bg-slate-900 overflow-hidden mb-2 relative">
-                <img 
-                  src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=400&q=80" 
-                  alt="Big Data Course"
-                  className="w-full h-full object-cover" 
-                />
-              </div>
-              <p className="text-xs font-bold">the Power of Big Data</p>
-              <div className="flex items-center justify-between text-[11px] text-slate-500 mt-1">
-                <span>17 Lessons • 2 hours 16 mins</span>
-                <span className="font-bold text-amber-500">4.5 ★</span>
-              </div>
-            </div>
-
-            {/* Happy Students floating badge */}
-            <div className="absolute -bottom-4 right-2 bg-white rounded-xl p-2.5 shadow-xl border border-slate-100 flex items-center gap-2">
-              <div className="flex -space-x-1">
-                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=60&q=80" className="w-5 h-5 rounded-full object-cover" alt="" />
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=60&q=80" className="w-5 h-5 rounded-full object-cover" alt="" />
-              </div>
-              <span className="text-[11px] font-bold text-slate-800">Happy Students 2K+</span>
-            </div>
-          </div>
+      {/* 3. Main 1440px Centered Canvas Content */}
+      <main className="relative z-10 w-full max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-[122px] pb-16 flex-1 flex flex-col lg:flex-row items-center lg:items-start justify-between gap-12 lg:gap-8">
+        
+        {/* Left Column: Visual Showcase (Figma: Text 47:498 + Group 7 15254:194) */}
+        <div className="w-full lg:w-[580px] shrink-0 pt-2 lg:pt-0">
+          <AuthVisualShowcase
+            title="Sign up and come in"
+            subtitle="The registration process is straightforward, uncomplicated, and efficient, allowing users to sign up quickly, easily, and at no cost"
+          />
         </div>
 
-        {/* Bottom copyright */}
-        <p className="text-xs text-blue-200/80 z-10">© 2023 ByteSpace. All rights reserved.</p>
-      </div>
-
-      {/* RIGHT COLUMN: REGISTER FORM */}
-      <div className="w-full lg:w-1/2 p-6 sm:p-14 lg:p-20 flex items-center justify-center">
-        <div className="w-full max-w-md bg-white rounded-3xl p-8 sm:p-10 border border-slate-200 shadow-xl space-y-6">
+        {/* Right Column: Register Card (Figma: Register_Frame 47:362) */}
+        <div className="w-full max-w-[579px] bg-white rounded-[24px] p-6 sm:p-10 lg:px-[48px] lg:py-[40px] xl:px-[63px] xl:py-[52px] shadow-2xl flex flex-col justify-between shrink-0 min-h-[620px] xl:min-h-[740px]">
           
           <div>
-            <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider block">
-              Create an Account
-            </span>
-            <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mt-1">
-              Welcome to ByteSpace
-            </h1>
+            {/* Step & Heading */}
+            <div className="mb-6 xl:mb-8">
+              <span className="font-['Satoshi'] font-normal text-[16px] xl:text-[18px] leading-[24px] xl:leading-[28.8px] text-[#003BE2] block">
+                Create an Account
+              </span>
+              <h1 className="font-['Poppins'] font-semibold text-[30px] sm:text-[38px] xl:text-[44px] leading-[36px] sm:leading-[46px] xl:leading-[52.8px] text-[#242528] mt-1">
+                Welcome to ByteSpace
+              </h1>
+            </div>
+
+            {submitted ? (
+              <div className="bg-emerald-50 border border-emerald-200 rounded-[16px] p-8 text-center space-y-3 my-8">
+                <div className="w-14 h-14 bg-emerald-500 text-white rounded-full flex items-center justify-center mx-auto text-2xl font-bold">
+                  ✓
+                </div>
+                <h3 className="font-['Poppins'] font-semibold text-emerald-900 text-xl">Account Created!</h3>
+                <p className="font-['Satoshi'] text-emerald-700 text-sm">
+                  Welcome to ByteSpace. Redirecting to home...
+                </p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-4 xl:space-y-6">
+                
+                {/* Full Name Field */}
+                <div>
+                  <label className="block font-['Satoshi'] font-medium text-[14px] leading-[16.8px] text-[#242528] mb-1.5 xl:mb-2">
+                    Full Name
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    placeholder="Jamie Davis"
+                    value={fullName}
+                    onChange={(e) => setFullName(e.target.value)}
+                    className="w-full h-[48px] xl:h-[52px] rounded-[12px] border border-[#E5E6E8] px-5 xl:px-6 text-[16px] xl:text-[18px] text-[#242528] placeholder:text-[#82868E] outline-none focus:border-[#003BE2] focus:ring-1 focus:ring-[#003BE2] transition-all bg-white font-['Satoshi']"
+                  />
+                </div>
+
+                {/* Email Field */}
+                <div>
+                  <label className="block font-['Satoshi'] font-medium text-[14px] leading-[16.8px] text-[#242528] mb-1.5 xl:mb-2">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    required
+                    placeholder="designer@example.com"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="w-full h-[48px] xl:h-[52px] rounded-[12px] border border-[#E5E6E8] px-5 xl:px-6 text-[16px] xl:text-[18px] text-[#242528] placeholder:text-[#82868E] outline-none focus:border-[#003BE2] focus:ring-1 focus:ring-[#003BE2] transition-all bg-white font-['Satoshi']"
+                  />
+                </div>
+
+                {/* Password Field */}
+                <div>
+                  <label className="block font-['Satoshi'] font-medium text-[14px] leading-[16.8px] text-[#242528] mb-1.5 xl:mb-2">
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    required
+                    placeholder="••••••••"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    className="w-full h-[48px] xl:h-[52px] rounded-[12px] border border-[#E5E6E8] px-5 xl:px-6 text-[16px] xl:text-[18px] text-[#242528] placeholder:text-[#82868E] outline-none focus:border-[#003BE2] focus:ring-1 focus:ring-[#003BE2] transition-all bg-white font-['Satoshi']"
+                  />
+                </div>
+
+                {/* Continue CTA (Figma: Auto Layout Horizontal 47:381 - 123x46, right-aligned) */}
+                <div className="flex justify-end pt-2">
+                  <button
+                    type="submit"
+                    className="w-[123px] h-[44px] xl:h-[46px] rounded-full bg-[#D4FB20] hover:bg-[#c2eb00] text-[#242528] font-['Satoshi'] font-medium text-[16px] xl:text-[18px] flex items-center justify-center transition-all cursor-pointer shadow-sm active:scale-95"
+                  >
+                    Continue
+                  </button>
+                </div>
+
+              </form>
+            )}
           </div>
 
-          {submitted ? (
-            <div className="bg-green-50 border border-green-200 rounded-2xl p-6 text-center space-y-2">
-              <div className="w-12 h-12 bg-green-500 text-white rounded-full flex items-center justify-center mx-auto text-xl font-bold">
-                ✓
-              </div>
-              <h3 className="font-bold text-green-900 text-base">Account Created!</h3>
-              <p className="text-xs text-green-700">Redirecting to ByteSpace dashboard...</p>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-4">
-              
-              {/* Full Name */}
-              <div>
-                <label className="text-xs font-semibold text-slate-700 block mb-1.5">
-                  Full Name
-                </label>
-                <input
-                  type="text"
-                  required
-                  placeholder="Jamie Davis"
-                  value={fullName}
-                  onChange={(e) => setFullName(e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white text-sm focus:outline-none focus:ring-2 focus:ring-[#194BFB] transition-all"
-                />
-              </div>
-
-              {/* Email */}
-              <div>
-                <label className="text-xs font-semibold text-slate-700 block mb-1.5">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  required
-                  placeholder="designer@example.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white text-sm focus:outline-none focus:ring-2 focus:ring-[#194BFB] transition-all"
-                />
-              </div>
-
-              {/* Password */}
-              <div>
-                <label className="text-xs font-semibold text-slate-700 block mb-1.5">
-                  Password
-                </label>
-                <input
-                  type="password"
-                  required
-                  placeholder="••••••••••••"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white text-sm focus:outline-none focus:ring-2 focus:ring-[#194BFB] transition-all"
-                />
-              </div>
-
-              {/* Continue CTA Button */}
-              <button
-                type="submit"
-                className="w-full py-3.5 bg-[#D4FF00] hover:bg-[#c2eb00] text-slate-900 font-bold text-sm rounded-xl shadow-md transition-all active:scale-95 cursor-pointer mt-2"
-              >
-                Continue
-              </button>
-            </form>
-          )}
-
-          {/* Footer toggle */}
-          <div className="pt-2 text-center text-xs text-slate-500">
+          {/* Footer Toggle (Figma: Auto Layout Horizontal 47:383) */}
+          <div className="pt-6 xl:pt-8 text-center font-['Satoshi'] font-normal text-[15px] xl:text-[16px] leading-[25.6px] text-[#4B4C53]">
             Already have an account?{' '}
             <button
+              type="button"
               onClick={() => onNavigate('login')}
-              className="text-[#194BFB] font-bold hover:underline cursor-pointer"
+              className="text-[#003BE2] hover:underline cursor-pointer font-normal"
             >
               Login
             </button>
           </div>
 
         </div>
-      </div>
+
+      </main>
 
     </div>
   );
