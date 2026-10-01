@@ -1,24 +1,16 @@
-import React, { useState } from 'react';
-import { CheckCircle2, ChevronRight, PenTool, Code, Server, Briefcase, Megaphone, Camera } from 'lucide-react';
-import { CourseCard } from '../components/CourseCard';
+import React from 'react';
+import { CheckCircle2, PenTool, Code, Server, Briefcase, Megaphone, Camera } from 'lucide-react';
 import { HeroSection } from '../components/HeroSection';
 import { BrandPartnersSection } from '../components/BrandPartnersSection';
+import { FeaturedCoursesSection } from '../components/FeaturedCoursesSection';
 import { LimeSquiggle, Cone3D, LimeDonut3D } from '../components/GeometricDecorations';
-import { coursesData, categoryPills, testimonials } from '../data/coursesData';
+import { testimonials } from '../data/coursesData';
 
 interface HomePageProps {
   onNavigate: (route: string, param?: string) => void;
 }
 
 export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
-  const [activeCategory, setActiveCategory] = useState('Featured');
-
-  // Filter 6 featured courses
-  const filteredCourses = coursesData.filter(course => {
-    if (activeCategory === 'Featured') return true;
-    return course.category.toLowerCase().includes(activeCategory.toLowerCase()) || 
-           activeCategory.toLowerCase().includes(course.category.toLowerCase());
-  }).slice(0, 6);
 
   return (
     <div className="w-full flex flex-col">
@@ -30,64 +22,8 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
       {/* 2. BRAND PARTNERS STRIP (Figma: Frame 2 1:1794) */}
       <BrandPartnersSection />
 
-      {/* 3. DISCOVER YOUR PASSION, BUILD YOUR SKILLS */}
-      <section className="w-full py-20 bg-[#F8F9FC]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          {/* Header */}
-          <div className="text-center max-w-3xl mx-auto mb-10 space-y-3">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-              Discover Your Passion, <br className="hidden sm:block" />Build Your Skills
-            </h2>
-            <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
-              At ByteSpace Courses, we bring you closer to life-changing knowledge. Explore a variety of courses across different fields, from technology to the arts, and make a difference in your career and life.
-            </p>
-          </div>
-
-          {/* Category Filter Pills */}
-          <div className="flex items-center justify-start lg:justify-center gap-2 overflow-x-auto pb-4 pt-2 no-scrollbar">
-            {categoryPills.map((pill) => {
-              const isActive = activeCategory === pill;
-              return (
-                <button
-                  key={pill}
-                  onClick={() => setActiveCategory(pill)}
-                  className={`px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition-all duration-200 cursor-pointer ${
-                    isActive
-                      ? 'bg-[#D4FF00] text-slate-900 shadow-sm font-bold scale-105'
-                      : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
-                  }`}
-                >
-                  {pill}
-                </button>
-              );
-            })}
-          </div>
-
-          {/* 6 Course Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
-            {filteredCourses.map((course) => (
-              <CourseCard
-                key={course.id}
-                course={course}
-                onSelect={(id) => onNavigate('course-details', id)}
-              />
-            ))}
-          </div>
-
-          {/* View All Button */}
-          <div className="text-center mt-12">
-            <button
-              onClick={() => onNavigate('courses')}
-              className="inline-flex items-center gap-2 px-8 py-3 bg-[#194BFB] hover:bg-blue-700 text-white font-semibold text-sm rounded-full shadow-md hover:shadow-lg transition-all cursor-pointer"
-            >
-              <span>Explore All Courses</span>
-              <ChevronRight className="w-4 h-4" />
-            </button>
-          </div>
-
-        </div>
-      </section>
+      {/* 3. DISCOVER YOUR PASSION, BUILD YOUR SKILLS (Figma: Frame 3, Category Pills, Frame 8) */}
+      <FeaturedCoursesSection onNavigate={onNavigate} />
 
       {/* 4. EXPLORE DIVERSE LEARNING PATHS */}
       <section className="w-full py-20 bg-white border-t border-slate-200">

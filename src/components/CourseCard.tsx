@@ -1,6 +1,13 @@
 import React from 'react';
-import { BookOpen, Clock, MessageSquare, Star, Signal } from 'lucide-react';
+import { Star, Signal } from 'lucide-react';
 import type { Course } from '../types';
+
+const FIGMA_STUDENT_AVATARS = [
+  '/figma-assets/b44979e1c98ecb3ec92ac86805fe55581fbeaa60_ellipse.png',
+  '/figma-assets/3fe559181733e0fb69226caee836e40092facb44_ellipse.png',
+  '/figma-assets/0577f0e9b7fca2f32639871454da0de95f951709_ellipse.png',
+  '/figma-assets/d0cd3adb501c64c1b4cf766de6abb9fe8925fb5f_ellipse.png'
+];
 
 interface CourseCardProps {
   course: Course;
@@ -11,86 +18,88 @@ export const CourseCard: React.FC<CourseCardProps> = ({ course, onSelect }) => {
   return (
     <div 
       onClick={() => onSelect(course.id)}
-      className="group bg-white rounded-2xl border border-slate-200/90 hover:border-blue-400/50 p-4 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between cursor-pointer"
+      className="group bg-white rounded-[16px] border border-[#e5e6e8] hover:border-[#003be2]/30 p-4 transition-all duration-300 hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] hover:-translate-y-1 flex flex-col justify-between cursor-pointer w-full max-w-[373px] mx-auto min-h-[384px]"
     >
       <div>
-        {/* Thumbnail */}
-        <div className="relative aspect-video w-full rounded-xl overflow-hidden bg-slate-100 mb-3.5">
+        {/* 1. Thumbnail (341x195 in Figma) */}
+        <div className="relative w-full h-[195px] rounded-[12px] overflow-hidden bg-slate-100 select-none">
           <img 
             src={course.thumbnail} 
             alt={course.title}
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             loading="lazy"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-        </div>
 
-        {/* Stats Row: Lessons, Duration, Comments */}
-        <div className="flex items-center justify-between text-xs text-slate-500 font-medium pb-2 border-b border-slate-100">
-          <div className="flex items-center gap-1">
-            <BookOpen className="w-3.5 h-3.5 text-slate-400" />
-            <span>{course.lessonsCount} Lessons</span>
-          </div>
-          <div className="flex items-center gap-1">
-            <Clock className="w-3.5 h-3.5 text-slate-400" />
-            <span>{course.duration}</span>
-          </div>
-          <div className="flex items-center gap-1">
-            <MessageSquare className="w-3.5 h-3.5 text-slate-400" />
-            <span>{course.commentsCount} Comments</span>
+          {/* Floating chips at bottom of thumbnail */}
+          <div className="absolute bottom-2.5 left-2.5 right-2.5 flex items-center justify-between gap-1.5">
+            <span className="bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-[6px] text-[12px] font-sans font-medium text-[#4f4f4f] shadow-sm">
+              {course.lessonsCount} Lessons
+            </span>
+            <span className="bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-[6px] text-[12px] font-sans font-medium text-[#4f4f4f] shadow-sm">
+              {course.duration}
+            </span>
+            <span className="bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-[6px] text-[12px] font-sans font-medium text-[#4f4f4f] shadow-sm">
+              {course.commentsCount} Comments
+            </span>
           </div>
         </div>
 
-        {/* Title and Rating */}
-        <div className="pt-3">
+        {/* 2. Title & Author & Rating */}
+        <div className="pt-3.5">
           <div className="flex items-start justify-between gap-2">
-            <h3 className="font-bold text-slate-900 group-hover:text-[#194BFB] transition-colors line-clamp-1 text-base">
-              {course.title}
-            </h3>
-            <div className="flex items-center gap-1 text-xs font-semibold text-slate-700 shrink-0 bg-amber-50 px-1.5 py-0.5 rounded">
-              <span>{course.rating.toFixed(1)}</span>
-              <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
+            <div className="flex-1 min-w-0">
+              <h3 className="font-heading font-semibold text-[18px] sm:text-[20px] text-[#242528] group-hover:text-[#003be2] transition-colors truncate leading-[24px]">
+                {course.title}
+              </h3>
+              <p className="font-sans text-[12px] text-[#82868e] mt-0.5">
+                by {course.instructor.name.toLowerCase()}
+              </p>
+            </div>
+
+            {/* Rating */}
+            <div className="flex items-center gap-1 shrink-0 pt-0.5">
+              <span className="font-sans font-medium text-[16px] sm:text-[18px] text-[#4f4f4f]">
+                {course.rating.toFixed(1)}
+              </span>
+              <Star className="w-4 h-4 fill-[#ffb800] text-[#ffb800]" />
             </div>
           </div>
-          <p className="text-xs text-slate-500 mt-1">
-            by <span className="font-medium text-slate-700">{course.instructor.name}</span>
-          </p>
-        </div>
-
-        {/* Level badge */}
-        <div className="mt-3 flex items-center gap-1.5 text-xs text-slate-600 bg-slate-100/80 w-fit px-2.5 py-1 rounded-md">
-          <Signal className="w-3 h-3 text-[#194BFB]" />
-          <span className="font-medium">{course.level}</span>
         </div>
       </div>
 
-      {/* Footer: Price and Enrolled Students Avatars */}
-      <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
-        <div>
-          <span className="text-lg font-extrabold text-[#194BFB]">${course.price}</span>
-          <span className="text-xs text-slate-500 font-normal">/lifetime</span>
+      {/* 3. Middle & Bottom Meta Rows */}
+      <div className="pt-3">
+        {/* Level badge & Enrolled Students Stack */}
+        <div className="flex items-center justify-between gap-2 mb-3.5">
+          <div className="inline-flex items-center gap-1.5 bg-[#f5f5f6] text-[#4b4c53] font-sans font-medium text-[12px] px-2.5 py-1 rounded-[16px]">
+            <Signal className="w-3.5 h-3.5 text-[#003be2]" />
+            <span>{course.level}</span>
+          </div>
+
+          {/* Student Avatars Stack */}
+          <div className="flex items-center -space-x-2">
+            {FIGMA_STUDENT_AVATARS.map((src, i) => (
+              <img 
+                key={i}
+                src={src} 
+                alt="Student" 
+                className="w-7 h-7 rounded-full ring-2 ring-white object-cover" 
+              />
+            ))}
+            <div className="w-7 h-7 rounded-full bg-[#f5f5f6] ring-2 ring-white flex items-center justify-center font-sans font-medium text-[11px] text-[#242528]">
+              26+
+            </div>
+          </div>
         </div>
 
-        {/* Avatars Stack */}
-        <div className="flex items-center -space-x-1.5">
-          <img 
-            src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" 
-            alt="Student" 
-            className="w-5 h-5 rounded-full border border-white object-cover" 
-          />
-          <img 
-            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" 
-            alt="Student" 
-            className="w-5 h-5 rounded-full border border-white object-cover" 
-          />
-          <img 
-            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80" 
-            alt="Student" 
-            className="w-5 h-5 rounded-full border border-white object-cover" 
-          />
-          <div className="w-5 h-5 rounded-full bg-[#D4FF00] border border-white flex items-center justify-center text-[8px] font-bold text-slate-900">
-            2K+
-          </div>
+        {/* Price Row */}
+        <div className="flex items-baseline">
+          <span className="font-heading font-semibold text-[20px] text-[#003be2]">
+            ${course.price}
+          </span>
+          <span className="font-sans text-[12px] text-[#82868e] ml-1">
+            /lifetime
+          </span>
         </div>
       </div>
     </div>
