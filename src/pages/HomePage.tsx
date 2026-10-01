@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Search, CheckCircle2, ChevronRight, PenTool, Code, Server, Briefcase, Megaphone, Camera, Sparkles } from 'lucide-react';
+import { CheckCircle2, ChevronRight, PenTool, Code, Server, Briefcase, Megaphone, Camera } from 'lucide-react';
 import { CourseCard } from '../components/CourseCard';
-import { LimeSquiggle, Torus3D, Cone3D, LimePill3D, LimeDonut3D } from '../components/GeometricDecorations';
+import { HeroSection } from '../components/HeroSection';
+import { LimeSquiggle, Cone3D, LimeDonut3D } from '../components/GeometricDecorations';
 import { coursesData, categoryPills, testimonials } from '../data/coursesData';
 
 interface HomePageProps {
@@ -10,12 +11,6 @@ interface HomePageProps {
 
 export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
   const [activeCategory, setActiveCategory] = useState('Featured');
-  const [searchQuery, setSearchQuery] = useState('');
-
-  const handleSearchSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    onNavigate('courses', searchQuery);
-  };
 
   // Filter 6 featured courses
   const filteredCourses = coursesData.filter(course => {
@@ -27,110 +22,9 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
   return (
     <div className="w-full flex flex-col">
       
-      {/* 1. HERO SECTION */}
-      <section className="relative w-full bg-[#194BFB] bg-grid-pattern text-white overflow-hidden pt-12 pb-24 md:py-20">
-        
-        {/* Floating 3D Geometric Accents */}
-        <div className="absolute top-12 left-6 lg:left-16 pointer-events-none opacity-90 animate-pulse">
-          <LimeSquiggle className="w-20 h-20 md:w-28 md:h-28" />
-        </div>
-        <div className="absolute top-28 right-8 lg:right-24 pointer-events-none opacity-95">
-          <LimePill3D className="w-20 h-20 md:w-28 md:h-28" />
-        </div>
-        <div className="absolute bottom-16 left-12 lg:left-28 pointer-events-none opacity-85">
-          <Torus3D className="w-20 h-20 md:w-28 md:h-28" />
-        </div>
-        <div className="absolute bottom-20 right-14 lg:right-32 pointer-events-none opacity-90">
-          <Cone3D className="w-16 h-20 md:w-24 md:h-28" />
-        </div>
-        <div className="absolute top-1/2 left-2 pointer-events-none opacity-70 hidden sm:block">
-          <LimeDonut3D className="w-14 h-14" />
-        </div>
+      {/* 1. HERO SECTION (Figma: Hero_Frame 1:1695) */}
+      <HeroSection onSearch={(query) => onNavigate('courses', query)} />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center max-w-3xl mx-auto space-y-5">
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
-              Get Access to Hundreds Courses Available
-            </h1>
-            <p className="text-sm sm:text-base lg:text-lg text-blue-100 max-w-2xl mx-auto leading-relaxed font-normal">
-              Unlock your creativity, gain valuable knowledge, and grow your business with our wide range of courses.
-            </p>
-
-            {/* Hero Search Bar */}
-            <form onSubmit={handleSearchSubmit} className="pt-4 max-w-xl mx-auto">
-              <div className="bg-white rounded-full p-1.5 pl-6 flex items-center shadow-2xl transition-all focus-within:ring-4 focus-within:ring-white/30">
-                <Search className="w-5 h-5 text-slate-400 shrink-0 mr-3" />
-                <input
-                  type="text"
-                  placeholder="Course, topic, creator"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full text-slate-800 text-sm font-medium focus:outline-none placeholder-slate-400"
-                />
-                <button
-                  type="submit"
-                  className="px-7 py-3 bg-[#D4FF00] hover:bg-[#c2eb00] text-slate-900 font-bold text-sm rounded-full transition-all shrink-0 cursor-pointer shadow-md hover:scale-105 active:scale-95"
-                >
-                  Search
-                </button>
-              </div>
-            </form>
-          </div>
-
-          {/* Hero Visual Composition with Floating Cards */}
-          <div className="mt-14 relative max-w-4xl mx-auto">
-            <div className="relative mx-auto rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20 bg-gradient-to-b from-blue-600/40 to-blue-800/40 backdrop-blur-sm max-w-2xl aspect-[4/3] sm:aspect-[16/10]">
-              <img
-                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80"
-                alt="Student learning happily"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-            </div>
-
-            {/* Floating Badge 1: Top Left - Course Pill */}
-            <div className="absolute -top-6 left-2 sm:-left-6 bg-white/95 backdrop-blur-md rounded-2xl p-3.5 shadow-xl border border-slate-100 flex items-center gap-3 animate-bounce-subtle z-20">
-              <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-[#194BFB]">
-                <Sparkles className="w-5 h-5" />
-              </div>
-              <div className="text-left">
-                <p className="text-xs font-bold text-slate-900">UI/UX Design</p>
-                <p className="text-[11px] text-slate-500 font-medium">$20/Course • 1000+ Reviews</p>
-              </div>
-            </div>
-
-            {/* Floating Badge 2: Top Right - Learning Progress */}
-            <div className="absolute -top-4 right-2 sm:-right-6 bg-white/95 backdrop-blur-md rounded-2xl p-4 shadow-xl border border-slate-100 text-left z-20 min-w-[150px]">
-              <p className="text-[11px] text-slate-500 font-medium">Learning Progress</p>
-              <div className="flex items-center justify-between gap-3 mt-1">
-                <span className="text-2xl font-extrabold text-slate-900">55%</span>
-                <div className="w-12 h-2.5 bg-slate-100 rounded-full overflow-hidden">
-                  <div className="h-full bg-[#194BFB] rounded-full w-[55%]" />
-                </div>
-              </div>
-            </div>
-
-            {/* Floating Badge 3: Bottom Left - Happy Students */}
-            <div className="absolute -bottom-6 left-4 sm:left-4 bg-white/95 backdrop-blur-md rounded-2xl p-3.5 shadow-xl border border-slate-100 flex items-center gap-3 z-20">
-              <div>
-                <p className="text-xs font-bold text-slate-900">Happy Students</p>
-                <div className="flex items-center gap-1.5 mt-1">
-                  <div className="flex items-center -space-x-1.5">
-                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=80&q=80" alt="Avatar" className="w-5 h-5 rounded-full border border-white object-cover" />
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=80&q=80" alt="Avatar" className="w-5 h-5 rounded-full border border-white object-cover" />
-                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=80&q=80" alt="Avatar" className="w-5 h-5 rounded-full border border-white object-cover" />
-                    <div className="w-5 h-5 rounded-full bg-[#D4FF00] border border-white flex items-center justify-center text-[8px] font-bold text-black">
-                      2K+
-                    </div>
-                  </div>
-                  <span className="text-xs font-bold text-slate-700 ml-1">4.8 ★</span>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
 
       {/* 2. BRAND PARTNERS STRIP */}
       <section className="w-full bg-white border-b border-slate-200 py-8">
