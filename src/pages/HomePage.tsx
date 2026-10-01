@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { CheckCircle2, ChevronRight, PenTool, Code, Server, Briefcase, Megaphone, Camera } from 'lucide-react';
 import { CourseCard } from '../components/CourseCard';
 import { HeroSection } from '../components/HeroSection';
+import { BrandPartnersSection } from '../components/BrandPartnersSection';
 import { LimeSquiggle, Cone3D, LimeDonut3D } from '../components/GeometricDecorations';
 import { coursesData, categoryPills, testimonials } from '../data/coursesData';
 
@@ -26,23 +27,8 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
       <HeroSection onSearch={(query) => onNavigate('courses', query)} />
 
 
-      {/* 2. BRAND PARTNERS STRIP */}
-      <section className="w-full bg-white border-b border-slate-200 py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap items-center justify-center sm:justify-between gap-8 opacity-60 grayscale hover:grayscale-0 transition-all">
-            {['logoipsum', 'logoipsum', 'logoipsum', 'logoipsum', 'logoipsum'].map((logo, idx) => (
-              <div key={idx} className="flex items-center gap-2">
-                <div className="w-6 h-6 rounded-full border-2 border-slate-700 flex items-center justify-center font-bold text-xs">
-                  ⚡
-                </div>
-                <span className="text-lg font-bold tracking-tight text-slate-700 lowercase">
-                  {logo}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* 2. BRAND PARTNERS STRIP (Figma: Frame 2 1:1794) */}
+      <BrandPartnersSection />
 
       {/* 3. DISCOVER YOUR PASSION, BUILD YOUR SKILLS */}
       <section className="w-full py-20 bg-[#F8F9FC]">
