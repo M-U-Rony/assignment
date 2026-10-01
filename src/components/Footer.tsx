@@ -1,9 +1,18 @@
 import React, { useState } from 'react';
 
 interface FooterProps {
-  onNavigate: (route: string) => void;
+  onNavigate?: (route: string) => void;
 }
 
+/**
+ * Footer — Figma Frame: "Footer" (Node 34:1256)
+ *
+ * Canvas: 1440x525, background #FFFFFF, top border line
+ * Content Frame (34:1257): 1200x406, centered with max-w-[1200px]
+ * Left column: Logo, Newsletter input (with #D4FB20 button), Consent text
+ * Right columns: Browse (Courses, Categories, Business, IT, Design), Development/Marketing/Photography, Platform links
+ * Bottom copyright bar (34:1296): © 2023 ByteSpace. All rights reserved. + Privacy, Terms, Cookies
+ */
 export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
@@ -18,108 +27,235 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   };
 
   return (
-    <footer className="w-full bg-white border-t border-slate-200 text-slate-600 pt-16 pb-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="w-full bg-white border-t border-[#e5e6e8] relative z-20">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-0 pt-16 pb-12">
         
-        {/* Top Grid: Newsletter + 3 Columns */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16 border-b border-slate-200">
+        {/* Top Navigation Grid (Node 34:1258) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-[92px] items-start pb-12">
           
-          {/* Newsletter Column */}
-          <div className="lg:col-span-5 space-y-4">
+          {/* Left: Newsletter Block (Node 34:1259, w=504) */}
+          <div className="lg:col-span-6 flex flex-col max-w-[504px]">
+            {/* Logo: ByteSpace Dark Logo (Node 34:1261) */}
             <div 
-              onClick={() => onNavigate('home')} 
-              className="flex items-center gap-2 cursor-pointer select-none"
+              onClick={() => onNavigate?.('home')} 
+              className="flex items-center cursor-pointer select-none group w-fit"
             >
-              <div className="w-7 h-7 rounded-md bg-[#D4FF00] flex items-center justify-center font-bold text-blue-900 text-base">
-                b
-              </div>
-              <span className="text-xl font-bold tracking-tight text-slate-900">
-                Byte<span className="text-slate-800">Space</span>
-              </span>
+              <img 
+                src="/figma-assets/bytespace_logo_dark.svg" 
+                alt="ByteSpace" 
+                className="h-[35px] w-auto object-contain transition-transform group-hover:scale-105" 
+              />
             </div>
 
-            <p className="text-sm text-slate-500 max-w-sm leading-relaxed">
+            {/* Subtitle (Node 34:1264) */}
+            <p className="font-sans font-normal text-[16px] text-[#242528] leading-[25.6px] mt-6">
               Stay Up to date with our latest features and releases by joining our newsletter.
             </p>
 
-            <form onSubmit={handleSubscribe} className="pt-2">
-              <div className="flex flex-col sm:flex-row gap-2 max-w-md">
+            {/* Input + Button Form (Node 34:1266) */}
+            <form onSubmit={handleSubscribe} className="mt-6 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-6">
+              <div className="flex-1 h-[52px] bg-white border border-[#ced0d3] rounded-[24px] px-6 flex items-center shadow-sm focus-within:border-[#003be2] transition-colors">
                 <input
                   type="email"
                   required
                   placeholder="Enter your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="flex-1 px-4 py-2.5 text-sm bg-slate-50 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#194BFB] focus:border-transparent transition-all"
+                  className="w-full bg-transparent font-sans text-[16px] text-[#242528] placeholder-[#82868e] focus:outline-none"
                 />
-                <button
-                  type="submit"
-                  className="px-6 py-2.5 bg-[#D4FF00] hover:bg-[#c2eb00] text-slate-900 font-semibold text-sm rounded-xl transition-all shadow-sm active:scale-95 cursor-pointer whitespace-nowrap"
-                >
-                  {subscribed ? 'Subscribed!' : 'Search'}
-                </button>
               </div>
-              {subscribed && (
-                <p className="text-xs text-green-600 mt-2 font-medium">
-                  ✓ Thank you for subscribing to ByteSpace updates!
-                </p>
-              )}
+
+              <button
+                type="submit"
+                className="h-[46px] px-6 bg-[#d4fb20] hover:bg-[#cbfc01] text-[#242528] font-sans font-medium text-[18px] leading-[21.6px] rounded-[24px] flex items-center justify-center transition-all cursor-pointer shadow-sm hover:scale-105 active:scale-95 shrink-0"
+              >
+                {subscribed ? 'Subscribed!' : 'Search '}
+              </button>
             </form>
 
-            <p className="text-xs text-slate-400 max-w-sm">
-              By subscribing you agree to our Privacy Policy and consent to receive updates from our company.
+            {/* Privacy Policy consent (Node 34:1271) */}
+            <p className="font-sans font-normal text-[12px] text-[#242528] leading-[19.2px] mt-5">
+              By subscribing, you agree to our Privacy Policy and consent to receive updates from our company.
             </p>
           </div>
 
-          {/* Links Columns */}
-          <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8 text-sm">
+          {/* Right: Navigation Links (Node 34:1272, w=580, gap=40) */}
+          <div className="lg:col-span-6 grid grid-cols-2 sm:grid-cols-3 gap-8 sm:gap-10 text-left">
             
-            {/* Column 1 */}
-            <div className="space-y-3">
-              <h4 className="font-semibold text-slate-900 mb-2">Explore</h4>
-              <ul className="space-y-2.5">
-                <li><button onClick={() => onNavigate('courses')} className="hover:text-[#194BFB] transition-colors">Featured Courses</button></li>
-                <li><button onClick={() => onNavigate('courses')} className="hover:text-[#194BFB] transition-colors">Featured Categories</button></li>
-                <li><button onClick={() => onNavigate('courses')} className="hover:text-[#194BFB] transition-colors">Business</button></li>
-                <li><button onClick={() => onNavigate('courses')} className="hover:text-[#194BFB] transition-colors">IT & Software</button></li>
-                <li><button onClick={() => onNavigate('courses')} className="hover:text-[#194BFB] transition-colors">Design</button></li>
+            {/* Column 1: Browse (Node 34:1273) */}
+            <div>
+              <h4 className="font-sans font-normal text-[16px] text-[#242528] leading-[24px] mb-6">
+                Browse
+              </h4>
+              <ul className="space-y-4">
+                <li>
+                  <button 
+                    onClick={() => onNavigate?.('courses')} 
+                    className="font-sans font-normal text-[14px] text-[#242528] hover:text-[#003be2] transition-colors cursor-pointer"
+                  >
+                    Featured Courses
+                  </button>
+                </li>
+                <li>
+                  <button 
+                    onClick={() => onNavigate?.('courses')} 
+                    className="font-sans font-normal text-[14px] text-[#242528] hover:text-[#003be2] transition-colors cursor-pointer"
+                  >
+                    Featured Categories
+                  </button>
+                </li>
+                <li>
+                  <button 
+                    onClick={() => onNavigate?.('courses')} 
+                    className="font-sans font-normal text-[14px] text-[#242528] hover:text-[#003be2] transition-colors cursor-pointer"
+                  >
+                    Business
+                  </button>
+                </li>
+                <li>
+                  <button 
+                    onClick={() => onNavigate?.('courses')} 
+                    className="font-sans font-normal text-[14px] text-[#242528] hover:text-[#003be2] transition-colors cursor-pointer"
+                  >
+                    IT
+                  </button>
+                </li>
+                <li>
+                  <button 
+                    onClick={() => onNavigate?.('courses')} 
+                    className="font-sans font-normal text-[14px] text-[#242528] hover:text-[#003be2] transition-colors cursor-pointer"
+                  >
+                    Design
+                  </button>
+                </li>
               </ul>
             </div>
 
-            {/* Column 2 */}
-            <div className="space-y-3">
-              <h4 className="font-semibold text-slate-900 mb-2">Categories</h4>
-              <ul className="space-y-2.5">
-                <li><button onClick={() => onNavigate('courses')} className="hover:text-[#194BFB] transition-colors">Development</button></li>
-                <li><button onClick={() => onNavigate('courses')} className="hover:text-[#194BFB] transition-colors">Marketing</button></li>
-                <li><button onClick={() => onNavigate('courses')} className="hover:text-[#194BFB] transition-colors">Photography</button></li>
-                <li><button onClick={() => onNavigate('courses')} className="hover:text-[#194BFB] transition-colors">Finance</button></li>
-                <li><button onClick={() => onNavigate('courses')} className="hover:text-[#194BFB] transition-colors">Sport</button></li>
+            {/* Column 2: Categories continuation (Node 34:1281) */}
+            <div>
+              <div className="hidden sm:block h-[24px] mb-6" aria-hidden="true" />
+              <ul className="space-y-4">
+                <li>
+                  <button 
+                    onClick={() => onNavigate?.('courses')} 
+                    className="font-sans font-normal text-[14px] text-[#242528] hover:text-[#003be2] transition-colors cursor-pointer"
+                  >
+                    Development
+                  </button>
+                </li>
+                <li>
+                  <button 
+                    onClick={() => onNavigate?.('courses')} 
+                    className="font-sans font-normal text-[14px] text-[#242528] hover:text-[#003be2] transition-colors cursor-pointer"
+                  >
+                    Marketing
+                  </button>
+                </li>
+                <li>
+                  <button 
+                    onClick={() => onNavigate?.('courses')} 
+                    className="font-sans font-normal text-[14px] text-[#242528] hover:text-[#003be2] transition-colors cursor-pointer"
+                  >
+                    Photography
+                  </button>
+                </li>
+                <li>
+                  <button 
+                    onClick={() => onNavigate?.('courses')} 
+                    className="font-sans font-normal text-[14px] text-[#242528] hover:text-[#003be2] transition-colors cursor-pointer"
+                  >
+                    Finance
+                  </button>
+                </li>
+                <li>
+                  <button 
+                    onClick={() => onNavigate?.('courses')} 
+                    className="font-sans font-normal text-[14px] text-[#242528] hover:text-[#003be2] transition-colors cursor-pointer"
+                  >
+                    Sport
+                  </button>
+                </li>
               </ul>
             </div>
 
-            {/* Column 3 */}
-            <div className="space-y-3">
-              <h4 className="font-semibold text-slate-900 mb-2">Platform</h4>
-              <ul className="space-y-2.5">
-                <li><button onClick={() => onNavigate('creator')} className="hover:text-[#194BFB] transition-colors">Become a Creator</button></li>
-                <li><button onClick={() => onNavigate('creator')} className="hover:text-[#194BFB] transition-colors">Affiliate Program</button></li>
-                <li><button onClick={() => onNavigate('404')} className="hover:text-[#194BFB] transition-colors">Contact</button></li>
-                <li><button onClick={() => onNavigate('404')} className="hover:text-[#194BFB] transition-colors">Help</button></li>
-                <li><button onClick={() => onNavigate('404')} className="hover:text-[#194BFB] transition-colors">About</button></li>
+            {/* Column 3: Platform (Node 34:1288) */}
+            <div>
+              <h4 className="font-sans font-normal text-[16px] text-[#242528] leading-[24px] mb-6">
+                Platform
+              </h4>
+              <ul className="space-y-4">
+                <li>
+                  <button 
+                    onClick={() => onNavigate?.('register')} 
+                    className="font-sans font-normal text-[14px] text-[#242528] hover:text-[#003be2] transition-colors cursor-pointer"
+                  >
+                    Become a Creator
+                  </button>
+                </li>
+                <li>
+                  <button 
+                    onClick={() => onNavigate?.('home')} 
+                    className="font-sans font-normal text-[14px] text-[#242528] hover:text-[#003be2] transition-colors cursor-pointer"
+                  >
+                    Affiliate Program
+                  </button>
+                </li>
+                <li>
+                  <button 
+                    onClick={() => onNavigate?.('home')} 
+                    className="font-sans font-normal text-[14px] text-[#242528] hover:text-[#003be2] transition-colors cursor-pointer"
+                  >
+                    Contact
+                  </button>
+                </li>
+                <li>
+                  <button 
+                    onClick={() => onNavigate?.('home')} 
+                    className="font-sans font-normal text-[14px] text-[#242528] hover:text-[#003be2] transition-colors cursor-pointer"
+                  >
+                    Help
+                  </button>
+                </li>
+                <li>
+                  <button 
+                    onClick={() => onNavigate?.('home')} 
+                    className="font-sans font-normal text-[14px] text-[#242528] hover:text-[#003be2] transition-colors cursor-pointer"
+                  >
+                    About
+                  </button>
+                </li>
               </ul>
             </div>
 
           </div>
+
         </div>
 
-        {/* Bottom bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-          <p>© 2023 ByteSpace. All rights reserved.</p>
-          <div className="flex items-center space-x-6">
-            <button onClick={() => onNavigate('404')} className="hover:text-slate-600 transition-colors">Privacy Policy</button>
-            <button onClick={() => onNavigate('404')} className="hover:text-slate-600 transition-colors">Terms of Service</button>
-            <button onClick={() => onNavigate('404')} className="hover:text-slate-600 transition-colors">Cookies Settings</button>
+        {/* Bottom Copyright Bar (Node 34:1296) */}
+        <div className="pt-6 border-t border-[#e5e6e8] flex flex-col sm:flex-row items-center justify-between gap-4 text-[12px] font-sans text-[#242528]">
+          <p className="leading-[19.2px]">
+            @ 2023 ByteSpace. All rights reserved.
+          </p>
+
+          <div className="flex items-center gap-6">
+            <button 
+              onClick={() => onNavigate?.('home')} 
+              className="hover:text-[#003be2] transition-colors cursor-pointer"
+            >
+              Privacy Policy
+            </button>
+            <button 
+              onClick={() => onNavigate?.('home')} 
+              className="hover:text-[#003be2] transition-colors cursor-pointer"
+            >
+              Terms of Service
+            </button>
+            <button 
+              onClick={() => onNavigate?.('home')} 
+              className="hover:text-[#003be2] transition-colors cursor-pointer"
+            >
+              Cookies Settings
+            </button>
           </div>
         </div>
 
