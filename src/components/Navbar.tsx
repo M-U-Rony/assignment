@@ -4,10 +4,9 @@ import { ShoppingBag, Menu, X } from 'lucide-react';
 interface NavbarProps {
   currentRoute: string;
   onNavigate: (route: string, param?: string) => void;
-  cartCount?: number;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ currentRoute, onNavigate, cartCount = 0 }) => {
+export const Navbar: React.FC<NavbarProps> = ({ currentRoute, onNavigate }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleNav = (route: string) => {
@@ -81,40 +80,26 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, onNavigate, cartCo
               Join Us
             </button>
 
-            {/* Shopping Bag Icon with Cart Count */}
-            <div className="relative flex items-center">
-              <button 
-                onClick={() => onNavigate('course-details', 'build-digital-asset')}
-                className="p-1.5 text-white hover:text-[#d4fb20] transition-colors cursor-pointer"
-                title="Shopping Bag"
-                aria-label="Shopping Cart"
-              >
-                <ShoppingBag className="w-5 h-5 stroke-[1.75]" />
-              </button>
-              {cartCount > 0 && (
-                <span className="absolute -top-1 -right-2 bg-[#d4fb20] text-[#242528] text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
-                  {cartCount}
-                </span>
-              )}
-            </div>
+            {/* Shopping Bag Icon (Figma: Style=Outlined 1:1786) */}
+            <button 
+              onClick={() => onNavigate('course-details', 'build-digital-asset')}
+              className="p-1 text-white hover:text-[#d4fb20] transition-colors cursor-pointer"
+              title="Shopping Bag"
+              aria-label="Shopping Cart"
+            >
+              <ShoppingBag className="w-5 h-5 stroke-[1.75]" />
+            </button>
           </div>
 
           {/* Mobile Menu Toggle Button */}
           <div className="md:hidden flex items-center gap-4">
-            <div className="relative flex items-center">
-              <button 
-                onClick={() => onNavigate('course-details', 'build-digital-asset')}
-                className="p-1.5 text-white"
-                aria-label="Shopping Cart"
-              >
-                <ShoppingBag className="w-5 h-5" />
-              </button>
-              {cartCount > 0 && (
-                <span className="absolute -top-1 -right-2 bg-[#d4fb20] text-[#242528] text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
-                  {cartCount}
-                </span>
-              )}
-            </div>
+            <button 
+              onClick={() => onNavigate('course-details', 'build-digital-asset')}
+              className="p-1 text-white hover:text-[#d4fb20] transition-colors"
+              aria-label="Shopping Cart"
+            >
+              <ShoppingBag className="w-5 h-5" />
+            </button>
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

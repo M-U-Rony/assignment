@@ -216,11 +216,11 @@ export const AuthVisualShowcase: React.FC<AuthVisualShowcaseProps> = ({ title, s
           />
         </div>
 
-        {/* Mid-right White 3D Shape (175x175) */}
-        <div className="absolute left-[348px] top-[321px] w-[175px] h-[175px] pointer-events-none z-15 drop-shadow-xl animate-float-reverse">
+        {/* Mid-right White 3D Zigzag Shape (175x175, Figma: Frame 49:180 / 49:330) */}
+        <div className="absolute left-[348px] top-[321px] w-[175px] h-[175px] pointer-events-none z-40 drop-shadow-2xl">
           <img 
-            src="/auth/auth_shape_white_rot180.png" 
-            alt="" 
+            src="/auth/auth_zigzag_white.png" 
+            alt="3D zigzag ornament" 
             className="w-full h-full object-contain"
           />
         </div>
