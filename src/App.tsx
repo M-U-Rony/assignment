@@ -114,7 +114,7 @@ export function App() {
   const isAuthPage = currentRoute === 'login' || currentRoute === 'register';
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#F8F9FC] text-slate-900 font-sans selection:bg-[#D4FF00] selection:text-black">
+    <div className={`min-h-screen flex flex-col ${isAuthPage ? 'bg-[#003BE2]' : 'bg-[#F8F9FC]'} text-slate-900 font-sans selection:bg-[#D4FF00] selection:text-black`}>
 
       {/* Main Navbar */}
       {!isAuthPage && (

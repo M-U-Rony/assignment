@@ -7,7 +7,7 @@ interface AuthHeaderProps {
 
 export const AuthHeader: React.FC<AuthHeaderProps> = ({ onNavigate }) => {
   return (
-    <header className="w-full h-[72px] lg:h-[90px] xl:h-[100px] flex items-center justify-between px-6 sm:px-12 lg:px-[122px] z-30 shrink-0">
+    <header className="w-full h-[64px] lg:h-[74px] xl:h-[84px] flex items-center justify-between px-6 sm:px-12 lg:px-[122px] z-30 shrink-0">
       <div 
         onClick={() => onNavigate('home')} 
         className="flex items-center cursor-pointer select-none group"

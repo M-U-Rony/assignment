@@ -27,7 +27,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onNavigate }) => {
   };
 
   return (
-    <div className="relative w-full min-h-screen bg-[#003BE2] flex flex-col overflow-x-hidden">
+    <div className="relative w-full min-h-screen bg-[#003BE2] flex flex-col justify-between overflow-x-hidden">
       
       {/* 1. Background 120px Grid Overlay (Figma: Group 4 49:196) */}
       <div 
@@ -45,10 +45,10 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onNavigate }) => {
       <AuthHeader onNavigate={onNavigate} />
 
       {/* 3. Main 1440px Centered Canvas Content */}
-      <main className="relative z-10 w-full max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-[122px] pb-16 flex-1 flex flex-col lg:flex-row items-center lg:items-start justify-between gap-12 lg:gap-8">
+      <main className="auth-zoom-container relative z-10 w-full max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-[122px] pb-6 lg:pb-10 flex-1 flex flex-col lg:flex-row items-center lg:items-start justify-between gap-8 lg:gap-8">
         
         {/* Left Column: Visual Showcase (Figma: Text 49:244 + Group 8 15254:195) */}
-        <div className="w-full lg:w-[580px] shrink-0 pt-2 lg:pt-0">
+        <div className="w-full lg:w-[580px] shrink-0 pt-1 lg:pt-0">
           <AuthVisualShowcase
             title="Sign in with ease"
             subtitle="Experience a seamless and efficient sign-in process that grants you instant access to a world of knowledge."
@@ -56,7 +56,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onNavigate }) => {
         </div>
 
         {/* Right Column: Login Card (Figma: Register_Frame 49:220) */}
-        <div className="w-full max-w-[579px] bg-white rounded-[24px] p-6 sm:p-10 lg:px-[48px] lg:py-[40px] xl:px-[63px] xl:py-[52px] shadow-2xl flex flex-col justify-between shrink-0 min-h-[620px] xl:min-h-[740px]">
+        <div className="w-full max-w-[579px] bg-white rounded-[24px] p-6 sm:p-8 lg:px-[40px] lg:py-[36px] xl:px-[48px] xl:py-[42px] shadow-2xl flex flex-col justify-between shrink-0 min-h-[540px] xl:min-h-[600px]">
           
           <div>
             {/* Step & Heading */}

@@ -21,7 +21,7 @@ export const RegisterPage: React.FC<RegisterPageProps> = ({ onNavigate }) => {
   };
 
   return (
-    <div className="relative w-full min-h-screen bg-[#003BE2] flex flex-col overflow-x-hidden">
+    <div className="relative w-full min-h-screen bg-[#003BE2] flex flex-col justify-between overflow-x-hidden">
       
       {/* 1. Background 120px Grid Overlay (Figma: Group 4 49:156) */}
       <div 
@@ -39,10 +39,10 @@ export const RegisterPage: React.FC<RegisterPageProps> = ({ onNavigate }) => {
       <AuthHeader onNavigate={onNavigate} />
 
       {/* 3. Main 1440px Centered Canvas Content */}
-      <main className="relative z-10 w-full max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-[122px] pb-16 flex-1 flex flex-col lg:flex-row items-center lg:items-start justify-between gap-12 lg:gap-8">
+      <main className="auth-zoom-container relative z-10 w-full max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-[122px] pb-6 lg:pb-10 flex-1 flex flex-col lg:flex-row items-center lg:items-start justify-between gap-8 lg:gap-8">
         
         {/* Left Column: Visual Showcase (Figma: Text 47:498 + Group 7 15254:194) */}
-        <div className="w-full lg:w-[580px] shrink-0 pt-2 lg:pt-0">
+        <div className="w-full lg:w-[580px] shrink-0 pt-1 lg:pt-0">
           <AuthVisualShowcase
             title="Sign up and come in"
             subtitle="The registration process is straightforward, uncomplicated, and efficient, allowing users to sign up quickly, easily, and at no cost"
@@ -50,7 +50,7 @@ export const RegisterPage: React.FC<RegisterPageProps> = ({ onNavigate }) => {
         </div>
 
         {/* Right Column: Register Card (Figma: Register_Frame 47:362) */}
-        <div className="w-full max-w-[579px] bg-white rounded-[24px] p-6 sm:p-10 lg:px-[48px] lg:py-[40px] xl:px-[63px] xl:py-[52px] shadow-2xl flex flex-col justify-between shrink-0 min-h-[620px] xl:min-h-[740px]">
+        <div className="w-full max-w-[579px] bg-white rounded-[24px] p-6 sm:p-8 lg:px-[40px] lg:py-[36px] xl:px-[48px] xl:py-[42px] shadow-2xl flex flex-col justify-between shrink-0 min-h-[520px] xl:min-h-[580px]">
           
           <div>
             {/* Step & Heading */}
