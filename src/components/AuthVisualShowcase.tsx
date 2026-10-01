@@ -21,81 +21,9 @@ export const AuthVisualShowcase: React.FC<AuthVisualShowcaseProps> = ({ title, s
       {/* 2. Visual Cluster (Figma: Group 7 15254:194 / Group 8 15254:195) */}
       <div className="relative w-[560px] h-[520px] xl:h-[590px] mx-auto lg:mx-0 scale-[0.82] lg:scale-[0.85] xl:scale-100 origin-top-left">
         
-        {/* Back Course Card: The Power of Big Data (Figma: Course_Card_1 49:63 / 49:282) */}
+        {/* Back Course Card: Build Digital Asset (Figma: Course_Card_1 49:32 / 49:251) */}
         <div 
-          className="absolute left-[111px] top-0 w-[373px] h-[384px] bg-white rounded-[20px] p-4 shadow-xl border border-white/20 z-10 flex flex-col justify-between"
-          style={{ transform: 'translateZ(0)' }}
-        >
-          {/* Card Media with floating tag pills */}
-          <div className="relative w-[341px] h-[195px] rounded-[16px] overflow-hidden bg-slate-900 shrink-0">
-            <img 
-              src="/figma-assets/4f3bdea5688b1a654db7a29b0bc5dd3563059d11_frame.png" 
-              alt="The Power of Big Data"
-              className="w-full h-full object-cover"
-            />
-            {/* Tag Pills */}
-            <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-[#242528] text-[12px] font-['Satoshi'] font-medium">
-              <span className="px-3 py-1.5 rounded-full bg-white/95 backdrop-blur-sm shadow-sm">
-                17 Lessons
-              </span>
-              <span className="px-3 py-1.5 rounded-full bg-white/95 backdrop-blur-sm shadow-sm">
-                2 hours 16 mins
-              </span>
-              <span className="px-3 py-1.5 rounded-full bg-white/95 backdrop-blur-sm shadow-sm">
-                59 Comments
-              </span>
-            </div>
-          </div>
-
-          {/* Card Info */}
-          <div className="pt-2 flex flex-col justify-between flex-1">
-            <div className="flex items-start justify-between gap-2">
-              <div>
-                <h3 className="font-['Poppins'] font-semibold text-[20px] leading-[26px] text-[#242528]">
-                  the Power of Big Data
-                </h3>
-                <p className="font-['Satoshi'] text-[12px] text-[#82868E] mt-0.5">
-                  by purepearl studio
-                </p>
-              </div>
-              <div className="flex items-center gap-1 shrink-0 pt-0.5">
-                <span className="font-['Satoshi'] font-medium text-[18px] text-[#242528]">4.5</span>
-                <span className="text-[#FFB800] text-[18px]">★</span>
-              </div>
-            </div>
-
-            {/* Level & Enrolled Avatars */}
-            <div className="flex items-center justify-between mt-2">
-              <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F5F5F6] text-[#242528] text-[12px] font-['Satoshi'] font-medium">
-                <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-                  <path d="M4 18h2v-4H4v4zm5 0h2V9H9v9zm5 0h2V4h-2v14zm5 0h2v-8h-2v8z" />
-                </svg>
-                <span>Beginner</span>
-              </div>
-
-              {/* Overlapping student avatar circles */}
-              <div className="flex items-center -space-x-2">
-                <img src="/figma-assets/b44979e1c98ecb3ec92ac86805fe55581fbeaa60_ellipse.png" alt="" className="w-7 h-7 rounded-full border-2 border-white object-cover" />
-                <img src="/figma-assets/3fe559181733e0fb69226caee836e40092facb44_ellipse.png" alt="" className="w-7 h-7 rounded-full border-2 border-white object-cover" />
-                <img src="/figma-assets/0577f0e9b7fca2f32639871454da0de95f951709_ellipse.png" alt="" className="w-7 h-7 rounded-full border-2 border-white object-cover" />
-                <img src="/figma-assets/d0cd3adb501c64c1b4cf766de6abb9fe8925fb5f_ellipse.png" alt="" className="w-7 h-7 rounded-full border-2 border-white object-cover" />
-                <div className="w-7 h-7 rounded-full border-2 border-white bg-[#003BE2] text-white text-[10px] font-bold flex items-center justify-center">
-                  26+
-                </div>
-              </div>
-            </div>
-
-            {/* Price Row */}
-            <div className="flex items-baseline gap-1 pt-2 border-t border-slate-100">
-              <span className="font-['Poppins'] font-semibold text-[20px] text-[#242528]">$25</span>
-              <span className="font-['Satoshi'] text-[12px] text-[#82868E]">/lifetime</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Front Course Card: Build Digital Asset (Figma: Course_Card_1 49:32 / 49:251) */}
-        <div 
-          className="absolute left-0 top-[89px] w-[373px] h-[384px] bg-white rounded-[20px] p-4 shadow-2xl border border-white/40 z-20 flex flex-col justify-between"
+          className="absolute left-0 top-[89px] w-[373px] h-[384px] bg-white rounded-[20px] p-4 shadow-xl border border-white/20 z-10 flex flex-col justify-between"
           style={{ transform: 'translateZ(0)' }}
         >
           {/* Card Media with floating tag pills */}
@@ -165,9 +93,81 @@ export const AuthVisualShowcase: React.FC<AuthVisualShowcaseProps> = ({ title, s
           </div>
         </div>
 
-        {/* Happy Students Floating Badge (Figma: Auto Layout Vertical 49:132 / 49:313) */}
+        {/* Front Course Card: The Power of Big Data (Figma: Course_Card_1 49:63 / 49:282) - on top of Build Digital Asset */}
         <div 
-          className="absolute left-[226px] top-[435px] w-[258px] h-[123px] bg-white rounded-[16px] p-4 shadow-2xl border border-slate-100 z-30 flex flex-col justify-between"
+          className="absolute left-[111px] top-0 w-[373px] h-[384px] bg-white rounded-[20px] p-4 shadow-2xl border border-white/40 z-20 flex flex-col justify-between"
+          style={{ transform: 'translateZ(0)' }}
+        >
+          {/* Card Media with floating tag pills */}
+          <div className="relative w-[341px] h-[195px] rounded-[16px] overflow-hidden bg-slate-900 shrink-0">
+            <img 
+              src="/figma-assets/4f3bdea5688b1a654db7a29b0bc5dd3563059d11_frame.png" 
+              alt="The Power of Big Data"
+              className="w-full h-full object-cover"
+            />
+            {/* Tag Pills */}
+            <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-[#242528] text-[12px] font-['Satoshi'] font-medium">
+              <span className="px-3 py-1.5 rounded-full bg-white/95 backdrop-blur-sm shadow-sm">
+                17 Lessons
+              </span>
+              <span className="px-3 py-1.5 rounded-full bg-white/95 backdrop-blur-sm shadow-sm">
+                2 hours 16 mins
+              </span>
+              <span className="px-3 py-1.5 rounded-full bg-white/95 backdrop-blur-sm shadow-sm">
+                59 Comments
+              </span>
+            </div>
+          </div>
+
+          {/* Card Info */}
+          <div className="pt-2 flex flex-col justify-between flex-1">
+            <div className="flex items-start justify-between gap-2">
+              <div>
+                <h3 className="font-['Poppins'] font-semibold text-[20px] leading-[26px] text-[#242528]">
+                  the Power of Big Data
+                </h3>
+                <p className="font-['Satoshi'] text-[12px] text-[#82868E] mt-0.5">
+                  by purepearl studio
+                </p>
+              </div>
+              <div className="flex items-center gap-1 shrink-0 pt-0.5">
+                <span className="font-['Satoshi'] font-medium text-[18px] text-[#242528]">4.5</span>
+                <span className="text-[#FFB800] text-[18px]">★</span>
+              </div>
+            </div>
+
+            {/* Level & Enrolled Avatars */}
+            <div className="flex items-center justify-between mt-2">
+              <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F5F5F6] text-[#242528] text-[12px] font-['Satoshi'] font-medium">
+                <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                  <path d="M4 18h2v-4H4v4zm5 0h2V9H9v9zm5 0h2V4h-2v14zm5 0h2v-8h-2v8z" />
+                </svg>
+                <span>Beginner</span>
+              </div>
+
+              {/* Overlapping student avatar circles */}
+              <div className="flex items-center -space-x-2">
+                <img src="/figma-assets/b44979e1c98ecb3ec92ac86805fe55581fbeaa60_ellipse.png" alt="" className="w-7 h-7 rounded-full border-2 border-white object-cover" />
+                <img src="/figma-assets/3fe559181733e0fb69226caee836e40092facb44_ellipse.png" alt="" className="w-7 h-7 rounded-full border-2 border-white object-cover" />
+                <img src="/figma-assets/0577f0e9b7fca2f32639871454da0de95f951709_ellipse.png" alt="" className="w-7 h-7 rounded-full border-2 border-white object-cover" />
+                <img src="/figma-assets/d0cd3adb501c64c1b4cf766de6abb9fe8925fb5f_ellipse.png" alt="" className="w-7 h-7 rounded-full border-2 border-white object-cover" />
+                <div className="w-7 h-7 rounded-full border-2 border-white bg-[#003BE2] text-white text-[10px] font-bold flex items-center justify-center">
+                  26+
+                </div>
+              </div>
+            </div>
+
+            {/* Price Row */}
+            <div className="flex items-baseline gap-1 pt-2 border-t border-slate-100">
+              <span className="font-['Poppins'] font-semibold text-[20px] text-[#242528]">$25</span>
+              <span className="font-['Satoshi'] text-[12px] text-[#82868E]">/lifetime</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Happy Students Floating Badge (Figma: Auto Layout Vertical 49:132 / 49:313 - Neon Lime #D4FB20) */}
+        <div 
+          className="absolute left-[226px] top-[435px] w-[258px] h-[123px] bg-[#D4FB20] rounded-[16px] p-4 shadow-2xl z-30 flex flex-col justify-between"
           style={{ transform: 'translateZ(0)' }}
         >
           <div>
@@ -175,10 +175,10 @@ export const AuthVisualShowcase: React.FC<AuthVisualShowcaseProps> = ({ title, s
               Happy Students
             </div>
             <div className="flex items-center gap-1.5 mt-0.5">
-              <span className="font-['Satoshi'] font-normal text-[10px] text-[#82868E]">
+              <span className="font-['Satoshi'] font-normal text-[10px] text-[#242528]/80">
                 4.5 (240)
               </span>
-              <span className="text-[#FFB800] text-[12px]">★</span>
+              <span className="text-[#003BE2] text-[12px]">★</span>
             </div>
           </div>
 
@@ -191,7 +191,7 @@ export const AuthVisualShowcase: React.FC<AuthVisualShowcaseProps> = ({ title, s
             <img src="/figma-assets/5824acacb3b76175bc84084ec18597109498f96d_ellipse.png" alt="" className="w-8 h-8 rounded-full border-2 border-white object-cover" />
             <img src="/figma-assets/7fdccc783264eedc4fb989984eecbc4058a219f2_ellipse.png" alt="" className="w-8 h-8 rounded-full border-2 border-white object-cover" />
             <img src="/figma-assets/1e078348a54489bfd231d82fe1944770883c8d80_ellipse.png" alt="" className="w-8 h-8 rounded-full border-2 border-white object-cover" />
-            <div className="w-8 h-8 rounded-full border-2 border-white bg-[#003BE2] text-white text-[11px] font-['Satoshi'] font-bold flex items-center justify-center">
+            <div className="w-8 h-8 rounded-full border-2 border-white bg-[#242528] text-white text-[11px] font-['Satoshi'] font-bold flex items-center justify-center">
               2K+
             </div>
           </div>
@@ -217,7 +217,7 @@ export const AuthVisualShowcase: React.FC<AuthVisualShowcaseProps> = ({ title, s
         </div>
 
         {/* Mid-right White 3D Shape (175x175) */}
-        <div className="absolute left-[348px] top-[321px] w-[175px] h-[175px] pointer-events-none z-25 drop-shadow-xl animate-float-reverse">
+        <div className="absolute left-[348px] top-[321px] w-[175px] h-[175px] pointer-events-none z-15 drop-shadow-xl animate-float-reverse">
           <img 
             src="/auth/auth_shape_white_rot180.png" 
             alt="" 

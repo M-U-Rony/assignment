@@ -15,7 +15,7 @@ export const AuthHeader: React.FC<AuthHeaderProps> = ({ onNavigate }) => {
         aria-label="ByteSpace Home"
       >
         <img 
-          src="/figma-assets/bytespace_logo.svg" 
+          src="/figma-assets/bytespace_mark.svg" 
           alt="ByteSpace" 
           className="h-8 sm:h-9 w-auto object-contain transition-transform group-hover:scale-105" 
         />
