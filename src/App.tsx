@@ -75,7 +75,6 @@ export function App() {
     return getRouteFromPath(window.location.pathname).param || 'build-digital-asset';
   });
   const [courseTab, setCourseTab] = useState<'about' | 'lessons' | 'reviews'>('about');
-  const [cartCount, setCartCount] = useState<number>(1);
 
   // Sync with browser back/forward buttons (Popstate)
   useEffect(() => {
@@ -123,7 +122,6 @@ export function App() {
           <Navbar
             currentRoute={currentRoute}
             onNavigate={handleNavigate}
-            cartCount={cartCount}
           />
         </div>
       )}
@@ -146,7 +144,6 @@ export function App() {
             courseId={routeParam}
             initialTab={courseTab}
             onNavigate={handleNavigate}
-            onAddToCart={() => setCartCount(prev => prev + 1)}
           />
         )}
 
